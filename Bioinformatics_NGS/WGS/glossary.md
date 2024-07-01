@@ -1,3 +1,22 @@
+# TOC
+Glossary:
+- NGS vs First generation sequencing.
+- VCF file, variant calling
+- SNPs Indels, CNV
+- Reference genome, hg37, hg38
+- raw read data, FASTQ file
+- WGS, WES, microarray
+- genomic alignment
+- haplogroup, haplotype, phasing
+- locus
+- chromosome
+- short read sequensing vs long read sequencing
+- annotations in context of VCF, dbSNP, ClinVar
+- mendelian vs poligenic diseases
+- genetic variant databases, ClinVar, OMIM etc
+- phasing
+
+
 #  DNA, First generation sequencing,  Next Generation Sequencing
 
 To provide context for those unfamiliar with molecular biology, DNA is a crucial biological molecule found in the nucleus of every human cell. It encodes the instructions for producing other molecules (namely proteins) within the cell, specifying their order and the conditions under which they are produced. In other words, DNA serves as a universal software and data guide for biological processes in the cell.
