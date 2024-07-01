@@ -1,51 +1,77 @@
 # Consumer Genetics Overview
 
-## Intro
-Consumer genetics got some pupularity in past decade because of significant progress in NGS sequencing. Modern sequencer machines like Illumina provide quite cheap short-read DNA sequensing, currently for a price of order of 300$. 
+## Introduction
+Consumer genetics has gained popularity over the past decade due to significant progress in NGS sequencing. Modern sequencer machines like those from Illumina provide relatively inexpensive short-read DNA sequencing, currently priced around $300.
+ 
+From a consumer's perspective, it works like this: a consumer genetics company requests a sample of your saliva or blood, then performs NGS short-read sequencing or alternatively applies microarray technology. After a while, the company provides you with several basic reports (fitness, wellness, pharmacogenomics, etc.), along with the raw and processed mutation data (FASTQ, BAM, VCF) uploaded to your password-protected area on their website.
 
-From a consumer's point of view it works like that. Consumer genetics company requests to provide you a sampe of your saliva or blood, then does a NGS short read sequensing or althernatively apply a micro array technology. Then after a while it prodives you with several base reports (Fitness, wellness, pharmacogenomics etc) along with the raw and processed mutation data (FASTQ, BAM, VCF) uploaded to your user password protected area on their web-site. 
-
-You can request more reports but it costs more money. Often a subscription is required, so the initial cost might be doubled. Each company migh have a sligtly different focus: some of the companies might foucus on ansestry, some on genomic pre-disposition reports. Ansestry is a bit more complicated, because on one side it requires collecting a lot of samples from people from different regions and on the other side to do it presisely it is neccesary to gen genome of al leat one of your close relatives to do so-called genome phasing, i.e determining to which chromosome a particular mulation belong to.
-
-## Technical Things to consider when choosing a consumer genomics company
-All companies look similar but the devil is in details. Usially a final result of sequnsing is a VCF file which contains all detected mutations and it might have been gotten with different kind of technologies, usually it is  microarray or short read NGS. 
-The difference is quite important. 
-
-Microarray is a cheaper option and in essense is a plate with limited number of DNA probes which bind (hybritizr) to a sample DNA in case their match, so one can say if this particular mutation is present in the sample DNA. As you can understand from this description microarrat can only detect existing known mutations (SNP, indels etc) and often quite behind up-to-date databases.
-
-In contrast with NGS technology you merely scan the whole genome (WGS) or exome (WES) for all mutations and can always re-annotated your vcf file with the recent update of clinical and other databases.
-
-WGS companies also probide you with a RAWS read data, so you can not only re-annotate you  data with recent databased but also re-align your genome to a new reference, which ugiall yhappens once in a decade with a new more precise reference genome
+You can request more reports, but this costs extra. Often, a subscription is required, so the initial cost might be doubled. Each company might have a slightly different focus: some may focus on ancestry, while others concentrate on genomic predisposition reports. Ancestry analysis is a bit more complicated, as it requires collecting a large number of samples from people in different regions. To do it precisely, it is also necessary to sequence the genome of at least one of your close relatives to perform genome phasing, which determines to which chromosome a particular mutation belongs.
 
 
-## What I can get out of sequencing my genome: reports
-That is usually the main question: why do I need it and what can I do with it? 
-Companies usually provides reports like
-- medical report
-- fitness
-- wellness
-- pharmacogenomics
+## Technical Considerations When Choosing a Consumer Genomics Company
 
-For medical reports they check your mutation with a ClinVar, OMIM and other databases, where all associations with diseases are written, so you have it like this: People with your genetic profile are likely to have the predisposition for XXX condition.
-So if you have a predisposition to any of diseases, they will tell it. It is important to understand that one should get those medical reports with some kind of scepticitism. The point is there are only limited number of diseases which are clearely depends on genetics, they usually caused by a very precise mutations in one or several genes, which make these genes disfunctional and cause disease. Such diseases are called Mendelian and the most famous case is sicle cell anemia. But in contrast to mendelian diseases most of existing diseases have a weak link to a genetic, which means that the real link between genes and diseases is not certain (just assosiated with) and scientist use statistics to assosiate these diseases with a number of genes, like is these 100 people have this diseases and one mutation is overepresented in their population, it means that these mutations have some degree of assosiation with that disease. So if those mutations are found in someone genome, they add up to a risk to have this disease but not guarantee it. 
-Before considering a varint as a harmfull, one has to consider many other things, like allele frequency in population etc. So, dont panic even if you found a harmful variant in your report
+All companies may appear similar, but the devil is in the details. Usually, the final result of sequencing is a VCF file containing all detected mutations. This file can be generated using different technologies, namely microarray or short-read NGS. The difference is quite important.
 
-Why that information anyway might be usefull for someone? Well, in some cases it might motivate one to change his/her lifestyle, for example if one has a predisposition to respiratory disease it might help to quit smoking etc. In some cases it might help to make a better diagnos, but one has to be carefull here, due to statistical nature of NGS there might be artifacts, so for medical purposes it is imperative to confirn NGS by more presice Sanger seguensing.
 
-For fitness you have it like this: People with your genetic profile are likely to have a good starting sprint.
+Microarray is a cheaper option and essentially a plate with a limited number of DNA probes that bind (hybridize) to a DNA sample. If there is a match, a dot can be detected, indicating that a particular mutation is present in the DNA sample. As you can infer from this description, microarray can only detect known mutations (SNPs, indels, etc.), and the list of those mutations tends to be outdated and lag behind current databases.
 
-Basically, it shows in which sport activity you can achieve most significant results based on genetic variants. That test might be usefull if you plan a sport career or to simply understand you bode better.
+![MicroArray technology to detect mutations: chip](img/micro_array_1.png)
+![MicroArray technology to detect mutations: readout](img/micro_array_2.png)
 
-Pharmacogenomics  reports show a possible side and adverse effects for different kind medications. 
 
-## What I can get out of it: Ancestry
-Another important information which might be extracted from your genome is your personal ansestry. It might be seen from two different angles, first your personal ansestry, i.e. answering the questins which people are your distant relatives? May be you have someone who is your relative and you even dont knoe that?
-Another angle is to define which pieces of world are your ansestors came from. May be you are a distante ansestor of vikings or romans conquers? 
+In contrast, NGS technology literally scans the whole genome (WGS) or exome (WES) for all mutations and you can always re-annotate your VCF file with the latest updates from clinical and other databases. For more information about NGS, see this article (link).
 
-Ansestry is more complicated staff then mutation reports and not all companies can provide it at a nessesary precision and scale. Usually it is a separate type of companies, which try to collect as many as possible samples, crete its own database and then look into this database to find spmeone close to you enough to be marked as relative.
+![NGS: next generation sequence, aligment to  a reference genome](img/ngs_alignment_1.png)
 
-Defining a population ansestry is done by collecting genetic samples from people living in rural areas for a long time, which garantees for some extent that they did not move and represent a stable population. Sequencing people living in big cities does not make a lot of sense, because they all probably move in in receant 100 or so years and might originate from totally different places. Then based on this data, a specific "haplotypes" are defined and linked to places they came from. If such a haplotype is found in your genome, it means that one of your ansestors originated from a very specific place. Thise haplotypes are stored in open databases.
+WGS companies also provide you with so-called RAW read data, allowing you to not only re-annotate your data with recent databases later on but also re-align your genome to a new reference, which usually happens once in a decade with a more precise reference genome.
 
-Another issue is that process of sequence analysis is a bit more complicated.  Ansestry is defining with haplogroups, i.e. a genomic regions which are heredited together. Due to recombinations the parents genomes are mixed together in a discrete way, so direct relatives will have a lot of similar haplogrpps but the father people from ansestry point of view the less hapogroups they will have in common. So, for a certain communities there are several haplograoups, so if you have it you belong to that population.
 
-Using haplogroup require more sophicticated analysis, because in contract to SNP detection which basically states which options of a certain locus you have one need to know the sane for each chromocome
+
+## What You Can Get from Sequencing Your Genome: Reports
+
+This is usually the main question: why do I need it, and what can I do with it? Companies typically provide reports like:
+
+- Medical reports
+- Fitness
+- Wellness
+- Pharmacogenomics
+
+(insert 4 pictures here)
+
+For medical reports, your mutations are checked against databases such as ClinVar, OMIM, and others, which contain associations with diseases. This allows the company to inform you if people with your genetic profile are likely to have a predisposition for certain conditions.
+
+If you have a predisposition to any diseases, they will notify you. It's important to approach these medical reports with some skepticism. Only a limited number of diseases are clearly linked to genetics. These are usually caused by specific mutations in one or several genes, making these genes dysfunctional and causing disease. Such diseases are called Mendelian, with sickle cell anemia being a well-known example. In contrast, most common diseases have a weaker genetic link, meaning the connection between genes and diseases is not certain (just associated) and scientists use statistics to associate these diseases with a number of genes. It works like this: if 100 people have a disease and a certain mutation is overrepresented in their population, it means that these mutations have some degree of association with that disease. So, if those mutations are found in someone's genome, they add up to a risk of having this disease but do not guarantee it.
+
+Before considering a variant as harmful, one must consider many other factors, such as allele frequency in the population. So, don't panic if you find a harmful variant in your report.
+
+Why might this information still be useful? In some cases, it might motivate someone to change their lifestyle. For example, if someone has a predisposition to respiratory disease, it might help them quit smoking. In other cases, it might help make a better diagnosis, but one must be careful here. Due to the statistical nature of NGS, there might be artifacts, so for medical purposes, it is imperative to confirm NGS results with more precise Sanger sequencing.
+
+For fitness, the report might indicate: People with your genetic profile are likely to have a good starting sprint.
+
+Basically, it shows in which sport activities you can achieve significant results based on genetic variants. This test might be useful if you plan a sports career or simply want to understand your body better.
+
+Pharmacogenomics reports show possible side effects and adverse reactions to different medications.
+
+
+
+
+
+
+
+
+## What You Can Get Out of It: Ancestry
+(insert a picture here)
+
+Another important piece of information that can be extracted from your genome is your personal ancestry. This can be viewed from two different angles. First, your personal ancestry: who are your distant relatives? Perhaps you have relatives you don't even know about.
+
+The second angle is determining the regions of the world your ancestors came from. Are you a distant descendant of Vikings or Roman conquerors?
+
+Ancestry is more complex than mutation reports, and not all companies can provide the necessary precision and scale. Usually, this requires a separate type of company that collects as many samples as possible, creates its own database, and then looks into this database to find someone closely related to you.
+
+Defining a population's ancestry involves collecting genetic samples from people who have lived in rural areas for a long time. This helps ensure they represent a stable population. Sequencing people living in big cities isn't as effective because they likely moved there within the last 100 years and could originate from entirely different places. Based on this data, specific "haplotypes" are defined and linked to the regions they came from. If such a haplotype is found in your genome, it means one of your ancestors originated from a very specific place. These haplotypes are stored in open databases.
+
+Another issue is that the process of sequence analysis is more complicated. Ancestry is determined using haplogroups, which are genomic regions inherited together. Due to recombination, parents' genomes mix in by chunks, so direct relatives will have many similar haplogroups aka chunks of sequence. However, the farther back you go in ancestry, the fewer haplogroups will be in common. For certain communities, there are several haplogroups; if you have them, you belong to that population.
+
+Using haplogroups requires more sophisticated analysis. In contrast to SNP detection, which identifies the variations at certain loci, haplogroup analysis requires understanding the same regions across each chromosome.
+
+The result of ansestry analysis ,ight be delivered in several ways.
