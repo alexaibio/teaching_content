@@ -1,8 +1,9 @@
 # TOC
 Glossary:
 - NGS vs First generation sequencing.
-- VCF file, variant calling
 - SNPs Indels, CNV
+- VCF file, variant calling
+
 - Reference genome, hg37, hg38
 - raw read data, FASTQ file
 - WGS, WES, microarray
