@@ -1,25 +1,11 @@
 # Consumer Genetics Overview
 
 ## Intro
-Consumer genetics got some pupularity in past decade because of significant progress in NGS sequencing. Modern sequencers like Illumina provide quite cheap short-read DNA sequensing, currently for a price of order of 300$. 
+Consumer genetics got some pupularity in past decade because of significant progress in NGS sequencing. Modern sequencer machines like Illumina provide quite cheap short-read DNA sequensing, currently for a price of order of 300$. 
 
-Glossary:
-- NGS vs First generation sequencing.
-- VCF file, variant calling
-- SNPs Indels, CNV
-- Reference genome, hg37, hg38
-- raw read data, FASTQ file
-- WGS, WES, microarray
-- genomic alignment
-- haplogroup, haplotype, phasing
-- locus
-- chromosome
-- short read sequensing vs long read sequencing
-- annotations in context of VCF, dbSNP, ClinVar
-- mendelian vs poligenic diseases
-- genetic variant databases, ClinVar, OMIM etc
+From a consumer's point of view it works like that. Consumer genetics company requests to provide you a sampe of your saliva or blood, then does a NGS short read sequensing or althernatively apply a micro array technology. Then after a while it prodives you with several base reports (Fitness, wellness, pharmacogenomics etc) along with the raw and processed mutation data (FASTQ, BAM, VCF) uploaded to your user password protected area on their web-site. 
 
-Usually consumer genetics companies request to provide a sampe of your saliva, then do a short read sequensing (or althernatively apply a micro array technology) and send you several base reports (Fitness, wellness, pharmacogenomics etc) along with raw data and processed mutation data. Adding more reports costs more money. Often a subscription is required, so the cost might be doubled. Each company migh have sligtly different focus: Some of the companies might foucus on ansestry, some on genomic pre-disposition reports. Ansestry is a bit more complicated , because it requires collecting a lot of samples from people from diferent regions and this information is not easily available.
+You can request more reports but it costs more money. Often a subscription is required, so the initial cost might be doubled. Each company migh have a sligtly different focus: some of the companies might foucus on ansestry, some on genomic pre-disposition reports. Ansestry is a bit more complicated, because on one side it requires collecting a lot of samples from people from different regions and on the other side to do it presisely it is neccesary to gen genome of al leat one of your close relatives to do so-called genome phasing, i.e determining to which chromosome a particular mulation belong to.
 
 ## Technical Things to consider when choosing a consumer genomics company
 All companies look similar but the devil is in details. Usially a final result of sequnsing is a VCF file which contains all detected mutations and it might have been gotten with different kind of technologies, usually it is  microarray or short read NGS. 
