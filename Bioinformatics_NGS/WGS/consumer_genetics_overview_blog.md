@@ -15,7 +15,7 @@ All companies may appear similar, but the devil is in the details. Usually, the 
 
 Microarray is a cheaper option and essentially a plate with a limited number of DNA probes that bind (hybridize) to a DNA sample. If there is a match, a dot can be detected, indicating that a particular mutation is present in the DNA sample. As you can infer from this description, microarray can only detect known mutations (SNPs, indels, etc.), and the list of those mutations tends to be outdated and lag behind current databases.
 
-![MicroArray technology to detect mutations: chip](img/micro_array_1.png )
+![MicroArray technology to detect mutations: chip](img/micro_array_1.jpeg )
 ![MicroArray technology to detect mutations: readout](img/micro_array_2.png)
 
 
