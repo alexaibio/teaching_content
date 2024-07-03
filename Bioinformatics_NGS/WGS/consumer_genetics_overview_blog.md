@@ -38,6 +38,7 @@ This is usually the main question: why do I need it, and what can I do with it? 
 
 ![DNA reports generated as a result of consumer dna tests](img/dna_reports.jpg)
 
+### Medical report
 For medical reports, your mutations are checked against databases such as ClinVar, OMIM, and others, which contain associations with diseases. This allows the company to inform you if people with your genetic profile are likely to have a predisposition for certain conditions.
 
 If you have a predisposition to any diseases, they will notify you. It's important to approach these medical reports with some skepticism. Only a limited number of diseases are clearly linked to genetics. These are usually caused by specific mutations in one or several genes, making these genes dysfunctional and causing disease. Such diseases are called Mendelian, with sickle cell anemia being a well-known example. In contrast, most common diseases have a weaker genetic link, meaning the connection between genes and diseases is not certain (just associated) and scientists use statistics to associate these diseases with a number of genes. It works like this: if 100 people have a disease and a certain mutation is overrepresented in their population, it means that these mutations have some degree of association with that disease. So, if those mutations are found in someone's genome, they add up to a risk of having this disease but do not guarantee it.
@@ -46,13 +47,23 @@ Before considering a variant as harmful, one must consider many other factors, s
 
 Why might this information still be useful? In some cases, it might motivate someone to change their lifestyle. For example, if someone has a predisposition to respiratory disease, it might help them quit smoking. In other cases, it might help make a better diagnosis, but one must be careful here. Due to the statistical nature of NGS, there might be artifacts, so for medical purposes, it is imperative to confirm NGS results with more precise Sanger sequencing.
 
-For fitness, the report might indicate: People with your genetic profile are likely to have a good starting sprint.
+### Fitness report
 
-Basically, it shows in which sport activities you can achieve significant results based on genetic variants. This test might be useful if you plan a sports career or simply want to understand your body better.
+Focus on physical performance, exercise, and factors that affect fitness levels such as muscle composition, endurance, and recovery. For fitness, the report might indicate that people with your genetic profile are likely to have a good starting sprint, for example.
 
-Pharmacogenomics reports show possible side effects and adverse reactions to different medications.
+Basically, it shows in which sports activities you can achieve significant results based on genetic variants. This test might be useful if you plan a sports career or simply want to understand your body better.
 
 
+### Wellness report
+
+Wellness reports aim to provide a comprehensive overview of factors that contribute to overall health, rather than focusing on specific diseases, sports predispositions, or medical conditions. They consider aspects like nutrition, lifestyle, and preventive care, detailing your predispositions to various deficiencies or sensitivities. The emphasis is on preventing potential health issues by understanding genetic predispositions and making informed lifestyle choices.
+
+Utilizing this wellness-deficiency information usually requires specific nutritional knowledge and is not easily utilized by a regular person. It is typically enough to periodically check your nutrient levels through blood tests to monitor and manage your nutritional status if necessary.
+
+
+### Pharmacogenomics report
+
+Pharmacogenomics reports show possible side effects and adverse reactions to different medications. For a healthy individual who is not taking medication on a daily basis or not about to undergo chemotherapy, it is not of much use. It is enough to scan it and check your tolerance to some common drugs like aspirin.
 
 
 
@@ -60,7 +71,7 @@ Pharmacogenomics reports show possible side effects and adverse reactions to dif
 
 
 ## What You Can Get Out of It: Ancestry
-(insert a picture here)
+![NGS Ansestry](img/ansestry.jpg)
 
 Another important piece of information that can be extracted from your genome is your personal ancestry. This can be viewed from two different angles. First, your personal ancestry: who are your distant relatives? Perhaps you have relatives you don't even know about.
 
