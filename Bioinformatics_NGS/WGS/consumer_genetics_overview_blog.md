@@ -15,13 +15,13 @@ All companies may appear similar, but the devil is in the details. Usually, the 
 
 Microarray is a cheaper option and essentially a plate with a limited number of DNA probes that bind (hybridize) to a DNA sample. If there is a match, a dot can be detected, indicating that a particular mutation is present in the DNA sample. As you can infer from this description, microarray can only detect known mutations (SNPs, indels, etc.), and the list of those mutations tends to be outdated and lag behind current databases.
 
-![MicroArray technology to detect mutations: chip](img/micro_array_1.jpeg )
-![MicroArray technology to detect mutations: readout](img/micro_array_2.png)
+![MicroArray technology to detect mutations: chip](img/micro_array_1.jpg )
+![MicroArray technology to detect mutations: readout](img/micro_array_2.jpg)
 
 
 In contrast, NGS technology literally scans the whole genome (WGS) or exome (WES) for all mutations and you can always re-annotate your VCF file with the latest updates from clinical and other databases. For more information about NGS, see this article (link).
 
-![NGS: next generation sequence, aligment to  a reference genome](img/ngs_alignment_1.png)
+![NGS: next generation sequence, aligment to  a reference genome](img/ngs_alignment_1.jpg)
 
 WGS companies also provide you with so-called RAW read data, allowing you to not only re-annotate your data with recent databases later on but also re-align your genome to a new reference, which usually happens once in a decade with a more precise reference genome.
 
@@ -36,7 +36,7 @@ This is usually the main question: why do I need it, and what can I do with it? 
 - Wellness
 - Pharmacogenomics
 
-(insert 4 pictures here)
+![DNA reports generated as a result of consumer dna tests](img/dna_reports.jpg)
 
 For medical reports, your mutations are checked against databases such as ClinVar, OMIM, and others, which contain associations with diseases. This allows the company to inform you if people with your genetic profile are likely to have a predisposition for certain conditions.
 
