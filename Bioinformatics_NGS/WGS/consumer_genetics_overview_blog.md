@@ -31,7 +31,7 @@ WGS companies also provide you with so-called RAW read data, allowing you to not
 
 This is usually the main question: why do I need it, and what can I do with it? Companies typically provide reports like:
 
-- Medical reports
+- Medical report
 - Fitness
 - Wellness
 - Pharmacogenomics
@@ -81,8 +81,9 @@ Ancestry is more complex than mutation reports, and not all companies can provid
 
 Defining a population's ancestry involves collecting genetic samples from people who have lived in rural areas for a long time. This helps ensure they represent a stable population. Sequencing people living in big cities isn't as effective because they likely moved there within the last 100 years and could originate from entirely different places. Based on this data, specific "haplotypes" are defined and linked to the regions they came from. If such a haplotype is found in your genome, it means one of your ancestors originated from a very specific place. These haplotypes are stored in open databases.
 
-Another issue is that the process of sequence analysis is more complicated. Ancestry is determined using haplogroups, which are genomic regions inherited together. Due to recombination, parents' genomes mix in by chunks, so direct relatives will have many similar haplogroups aka chunks of sequence. However, the farther back you go in ancestry, the fewer haplogroups will be in common. For certain communities, there are several haplogroups; if you have them, you belong to that population.
+Another issue is that the process of sequence analysis is more complicated. Ancestry is determined using haplogroups, which are genomic regions inherited together. Due to recombination, parents' genomes mix in chunks, so direct relatives will have many similar haplogroups, aka chunks of continued, non-interrupted sequences. However, the farther back you go in ancestry, the fewer haplogroups will be in common. For constant communities, there are precise haplogroups; if an individual has them, he is considered to belong to that population.
 
-Using haplogroups requires more sophisticated analysis. In contrast to SNP detection, which identifies the variations at certain loci, haplogroup analysis requires understanding the same regions across each chromosome.
+Using haplogroups requires more sophisticated analysis. In contrast to regular SNP analysis, which identifies the variations at certain loci (genotype), haplogroup analysis requires understanding the distribution of the same mutations across each chromosome, so one can understand if a set of mutations is inherited together.
 
-The result of ansestry analysis ,ight be delivered in several ways.
+
+The result of ancestry analysis might vary from very general, like how much Neanderthal genome you contain, to very detailed, like a reference to a precise region your distant relatives lived. The first one is not too interesting, but the second one might be a lot of fun. However, to get this kind of analysis, you need to sequence at a specialized "ancestry" consumer genetics company.
