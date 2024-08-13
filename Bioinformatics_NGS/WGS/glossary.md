@@ -21,7 +21,7 @@ Glossary:
 
 #  DNA, First generation sequencing,  Next Generation Sequencing
 
-To provide context for those unfamiliar with molecular biology, DNA is a crucial biological molecule found in the nucleus of every human cell. It encodes the instructions for producing other molecules (namely proteins) within the cell, specifying their order and the conditions under which they are produced. In other words, DNA serves as a universal software and data guide for biological processes in the cell.
+To provide context for those unfamiliar with molecular biology, DNA is a crucial biological molecule found in the nucleus of every human cell. It encodes the instructions for producing other molecules (namely proteins and non-coding RNA) within the cell, specifying their order and the conditions under which they are produced. In other words, DNA serves as a universal software and data guide for biological processes in the cell.
 
 It's important to note that DNA does not reflect the current state of the biological system but rather serves as a "code base" for all possible options. Each cell in the body contains identical DNA, so knowing a person's DNA code cannot provide definitive information about whether a person has a disease, its possible progression, etc. DNA is not used for diagnostics but rather for understanding the potential for certain conditions.
 
