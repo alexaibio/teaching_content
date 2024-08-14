@@ -64,9 +64,9 @@ The European Bioinformatics Institute (EMBL-EBI) is a European organization resp
 One of the challenges is that all three organizations use different chromosome names, making cross-annotation difficult. This discrepancy complicates the integration and comparison of data across different references.
 
 Below is a table illustrating the differences in chromosome naming conventions among NCBI, UCSC, and EMBL.
-|   NCBI name        | UCSC name    |   EMBL name  |   Release Date    |  
-|--------------------|--------------|--------------|-------------------|
-|  NC_000001.1       | chr1, chr2   |  1,2,3       |                   |
+|   NCBI chr name        | UCSC chr name    |   EMBL chr name  |
+|------------------------|------------------|------------------|
+|  NC_000001.1           |    chr1, chr2    |  1,2,3           |
 
 
 EMBL-EBI can be downloaded here
