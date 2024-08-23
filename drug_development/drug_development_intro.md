@@ -20,12 +20,17 @@ Modern Drug Development Cycle consists of three major stages
 - Preclinical development
 - Clinical development
 
+
 ## Drug discovery stage
 Drug is never exists in isolation, so finding a drug essentially means finding a tripple disease-target-drug.
 
-On a drug sicovery stage a drug discovery team must come up with several candidate disease-target-drug triples which them be hanged over to pre-clinical team for much more expencive developmnt.
+On a drug dicovery stage a drug discovery team must come up with several candidate triples **disease-target-drug** which then shall be hanged over to pre-clinical team for much more expensive developmnt.
 
-For a drug discovery company choosing disease is usually a starting point. The company first decide to find a drug for lung cancer for example and then go next to target and drug itself.
+### Disease
+For a drug discovery company choosing disease is usually a starting point. The company first decide to find a drug for lung cancer for example and then go next to target discovery and drug itself.
 
-For a drug-repurposing company it is other way round. Since they are trying to re-purpose the drug they might start from a drug then try to find a new target affected by this drug and then proceed to a disease.
+For a drug-repurposing company it might be other way round. Since they are trying to re-purpose the existing drug they might start from a drug then go to finding a novel target affected by this drug and then proceed to another disease, thatis their business.
+
+### Target
+After pinpointing a disease a target must be selected. Target is usually a protein or a gene, whcibmight be targeted.
 
