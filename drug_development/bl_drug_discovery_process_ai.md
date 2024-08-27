@@ -95,15 +95,15 @@ Biomarkers can be genes, proteins, metabolites, or other molecules that provide 
 
 
 ## Hit identification: a drug candidate
-At this stage we we the disease and the target which can affect this disease. 
-Now we need to find a 
-This stage involves finding chemical compounds (referred to as "hits") that interact with the druggable target identified in the previous step. Hits are molecules that show some degree of binding or biological activity against the target. It might be
+At this stage we have the disease and the target which can affect this disease. 
+Now we need to find a drug.
+This stage involves finding chemical compounds (referred to as "hits") that interact with the druggable target identified in the previous step. Hits are molecules that show some degree of binding or biological activity against the target. 
 
-a small molecule
+It might be a small molecule
 - we can find molecule that will bind to the target in-silico (AlphaFold)
 - we can do it by HTS, start from compound library (~100 000) and see the effect
 
-a biologic (might be **monoclonal antibodies: mAb or moAb**)
+or a biologic (might be **monoclonal antibodies: mAb or moAb**)
 - how it can be done?
 
 
