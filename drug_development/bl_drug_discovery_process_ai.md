@@ -125,109 +125,175 @@ So, what we need to do is the following
     Stability: Making sure the compound is stable under physiological conditions and doesn’t degrade too quickly.
     Absorption, Distribution, Metabolism, Excretion (ADME): Optimizing how the compound is absorbed, distributed in the body, metabolized, and excreted.
     
-    
+At the end of drug discovery process we have at least one **LEAD**,  a tripple of disease-target-drug which potentially can affect disease in a needed way.
+But all those conclusions so far were done outside of real biological systems, even if it was on at cell line level it was just concentrated on founding affect without focusing on how the drug affect the cell as a whole, now the next step would be to check if it works on biological non-human models: mises etc.  
+
 
 
 ---------------------------------------------------
 
-# Preclinical development
-    
-после discovery у нас есть хотя бы один lead molecule
+# Preclinical testing
+As a result of the drug discovery stage we have one or several candidate tripplets disease-target-drug and the goal of preclinical testing is to prove that it is effective and safe enough to try it on humans.
 
-preclinical testing is mainly about **efficacy and safety** (toxicity)
+A result of preclinical testing must be filling of **Investigational New Drug (IND)** application.
 
+Preclinical testing is mainly about **efficacy and safety (toxicity)**.
+It includes **in-vitro testing** and **in-vivo** testing on animal models, i.e. usually mices with induced disease-like conditions.
 
-    - **in-vitro testing + in-vivo animal models**
-    - preclinical - обязательно by regulatory authorities (FDA) - на их основании выдается разрешение на испытание на людях
-    - **preclinical включает**
-        - **PK - pharmacokinetics** - как оно движется по телу через ADME. Результат - **определение доз** для клиники / контролируется через концентрацию в организме - **что тело делает с лекарством**
-        - **PD - pharmacodynamics** - биологический эффект лекарства в зависимости от концентрации / контролируется через выбранный биомаркер - **что лекарство делает с телом**
-            - биомаркеры:
-                - cardio = cholesterol / myoglobin / creatine kinase (CK)
-                - diabetes - adiponectin / hemoglobin A1c
-                - cancer - HER2 / ER / PR
-        - **Acute toxicity** - выяснить вредный эффект от краткосрочного overdose, done in two mammalian species, effect observer in two weeks. Для ойенки результатов случайной передозировки, yfqnb medial lethal dose LD50 - dose which kills half of the animal - main measure of acute toxicity
-        - **Chronic toxicity** - same, up to two years,
-        - **Reproductive toxicity and teratogenicity** (возможность повреждать плод во время беременности)
-        - **Immunitoxicity** -
-        - **carcinogenicity**
-        - **bioavalability** - какой процент и скорость с которой API (Active ParmaI Ingredient) достигает места действия. обычно сложно померять концентрацию в нужном органе  - поэтому обычно меряют концентрацию в крови (для внутривенный считают **bioavailability = 100**)
-        - **bioequivalence** - изучают различные формы выпуска, способы доставки и тд и то как это влияет на эффективность лекарства
+Preclinical testing is mandatory, without it a regulatory authorities (FDA, etc) wont issue a permission to test it on humans.
 
-&nbsp;
+There are three parts in IND applications: 
+- **formulation development** - the best way to prepare a drug in the preclinical phase for its intended clinical use in patients
+- **pharmacology** (on animals) - 
+  - PK and ADME is the backbone of pharmacology.
+  - PD and safety 
+- **toxicology** - he toxicology studies aim to look at the effects of longer-term drug exposure on the body, including repeat dose studies.
 
-&nbsp;
+also clinical protocol and investigator information - detailed protocol for proposed clinical stadies
 
 
--------------------------------------
-# **Сlinical development**
-    
-    - **IND application** (Investigational New Drug application)
-        - после pre-clinical наступает время clinical trial - чтобы начать его нужно заполнить IND application - submitted to FDA
-        - туда должны входить данные из pre-clinical + production info - как лекарство будет производиться
-        - IND is a large milestone in the drug development!
-        - in IND should be covered
-            - animal pharmacology and toxicology studies - is it reasonable safe to try on human?
-            - **manufacturing** information - быть уверенным что компания сможет производить и поставлять необходимое количество лекарств
-            - clinical protocol and investigator information - detailed protocol for proposed clinical stadies, информация и квалификация of clinical investigators (врячей котореы будут вести trial)
-    - **Clinical Trials**
-        - intro
-            - лекарство впервые испытывается на людях во время clinical trials - this is a major milestone
-            - sponsor - эта та организация которая спонсирует clinical trial
-            - sponsor uses **CRO** (Contract Research Organization) которая и будет выполнять clinical trial
-            - volunteer are recruited
-        - Phase Zero
-            - первоначальное понимание как драг действует на тело и как тело реагирует на драг
-            - фаза 0 не обязательна
-            - введение очень малой дозы в 10-15 добровольцев
-                - does the drug reach its intended target?
-                - any adverse side effect for sub-therapeutics dose?
-                - do cancer cells respond?
-            - in general - phase zero helps to mitigate the risk of drug failing during costly clinical trials
-        - **Phase 1 - **здоровый пациент****
-            - goal - to determine **the highest dose** of a drug that can be safely administered to human without serious side affects
-            - method - **dose escalation** - разным группам волонтеров дают все увеличивающуюся дозу пока не появится side effects. есть два варианта этого исследования
-                - SAD - Single Ascending Dose studies - дозы повышаются в разных группах
-                - MAD - Multiple Ascending dose - дозы повыщаются для каждого члена группы
-                - PK / PD характеристики оцениваются и позволяют выяснить dose range
-        - **Phase 2 - эффективность ****в больных пациентах****, randomized placebo-controlled study**
-            - effectiveness in the target population is assessed
-            - то есть если в фазе 1 оценивается яра работа в здоровых пациентах - то в фазе 2  в больных target disease
-            - основная проблема - набрать больных пациантов, особенно если речь идет о rare disease
-            - phase 2a - find a dose level that has a desired effect of treating the disease
-            - phase 2 - this dose level is then used in phase 2b to confirm the efficacy
-            - single blinded - когда пациент не знает там плацебо или лекарство
-            - double blinded - когда также и доктор не знает
-        - **Phase 3** - efficacy in** **large patient population****
-            - lasts several years  with >1000 patients in several countries, so multiple test sites are required
-            - monitoring for safety, side effects,
-            - comparison to other treatments -are there benefits over competitors?
-            - id phase 3 demonstrate favorable results the sponsor can begin seeking regulatory approval to launch drug on to the market
-            - label expansion - проверка если помогает для других заболеваний тоже - не только для target
-    - **Launch (Phase 4) - regulatory submission, approval, launch**
-        - submission: pre-clinical and clinical studies, characteristic of drug and its future manufacturing and packaging
-            - NDA (new drug application ) - for small molecule drug
-            - BLA (biological licensing application) - for biologics
-        - Launch - обычно до этой стадии проходит 10 лет и миллиард долларов
-            - надо выбрать - pricing, brand name, package design, инструкция
-            - robust supply chain, digital marketing campaign
-        - Post-launch surveillance
-            - **pharmacovigilance** (фармнадзор) - надзор за препаратом после его выпуска в обращение
-            - adverse events - сюрпризы после выпуска
-            - drug-drug interaction
-            - on that stage are also investigated **drug repurposing** and **drug combinations**
-- **Others**
-    - Generics, Biosimilars and Biosuperiors
-        - **generics** - после истечения 20 лет, но 20 лает начинаются не с launch but from clinically?
-        - small molecules очень легко скопировать в отличие от biologics - почти невозможно создать точную копию - и они навоюются biosimilars
-        - **biosimilars** - должны проходить дополнительный clinical testing - чтобы доказать что они работают
-        - **biosuperiors** - иногда biosimilars работают лучше чем оригинальное лекарство - тогда их назвают biosuperiors - их тоже надо тестировать клиники перед запуском
-- **CMC - ****chemistry, manufacturing and control**
-    - **characterization - **определить методы оценки affinity for its target, purity, osmolarity etc
-    - stability - тестинг для определения срока годности, взаимодействия с упаковкой, также стабильность при разной температуре чтобы определить условия хранения (frozen, refrigerated, room temperature)
-    - Formulation - определение других веществ которые добавляются кроме active drug - для улучшения стабильности и safety.
+## PK - pharmacokinetics
+
+Pharmacokinetics (PK) refers to the study of how a drug moves through the body over time (what the body does to a drug?). 
+
+PK is typically divided into four key stages, summarized by the acronym ADME:
+- **Absorption**: How the drug enters the bloodstream after administration. Administration might be done as oral, intravenous (injected directly into the bloodstream), or topical (applied to the skin) and absorption heavily depends on this route of administration.
+- **Distribution**: This stage determines how much of the drug reaches the target site where it will have its intended effect.
+- **Metabolism**: Metabolism typically transforms the drug into more water-soluble compounds that can be more easily excreted from the body. 
+- **Excretion**: The process of eliminating the drug from the body, primarily through the kidneys (urine) or the liver (bile/feces). This stage determines how long the drug stays in the body and continues to have an effect.
+
+The usual outcome of these studies is to define
+- Concentration-Time Profile: concentration-time curve
+- Key Pharmacokinetic Parameters: Cmax (Maximum Concentration): The highest concentration of the drug observed in the blood after administration, Tmax (Time to Maximum Concentration), AUC (Area Under the Curve): Represents the total drug exposure over time;  etc
+- Absorption Characteristics: Bioavailability: The fraction of the administered dose that reaches the systemic circulation in an active form (especially important for oral drugs)
+- Distribution Profile: Information about how the drug is distributed in different tissues and organs.
+- etc
+
+All these properties have to be studied first in-vitro and then on an animal models before it enters clinical trials on human
+
+At this PK stage there is a room for AI:
+- Predictive Modeling: AI can be used to predict how a drug will be absorbed, distributed, metabolized, and excreted based on its chemical structure. (references?)
+- Virtual Screening: AI can simulate how a drug will interact with the body’s enzymes, proteins, and other molecules. This can help predict potential metabolic pathways and interactions early in the development process, (???? check for references)
+- Optimizing Dosing Regimens: AI can help in designing personalized dosing regimens by analyzing patient-specific data, such as genetic factors, that influence how a drug is metabolized and excreted. 
+- Accelerating ADME Profiling: AI can speed up the ADME profiling of new compounds by predicting the pharmacokinetic properties of large libraries of compounds, 
+- ?????
+
+
+## PD: pharmacodynamics
+Focuses on understanding the effects of a drug on the body, what drug does to a body.
+More precisely, it is the relationship between drug concentration and its biological or therapeutic effects.
+
+Identify Therapeutic and Toxic Effects. It is done by:
+- more detailed understanding of the **Mechanism of Action (MoA)**: how the drug interacts with its biological target (e.g., receptors, enzymes). It usually requires revisiting primary target interactions as well as Identification  Off-Targets (additional proteins or receptors the drug interacts with, which could lead to side effects)
+
+- targets must be also revisited because in The initial target identification and validation often occur in simplified systems, such as cell lines or biochemical assays (in-vitro). However, a living organism's complexity (in-vivo) can reveal new interactions or effects not seen in these early models.
+
+Evaluate **Drug Potency and Efficacy** and Establish the **Effective Dose Range**
+- understanding Binding Affinity: IC50/EC50 Values: Concentration of the drug required to inhibit or activate 50% of its target (measure of drug potency)
+
+- Dose-Response Relationship: quantitative data on the relationship between drug concentration and the magnitude of its effect, usually as 2D plot
+ 
+
+## Biomarkers at PD stage
+At the PD stage discovering **biomarkers** plays an important role as they are serving as measurable indicators of the biological processes that a drug influences.
+In plain words, biomarkers are any measurable substance or parameter which might say you that a biological process has changed its behaviour, you basically track effectiveness of you interventionby measuring biomarkers.
+
+Biomarkers can help validate that the drug is engaging with its intended target. For example, if a drug is designed to reduce cholesterol by inhibiting a specific enzyme, a drop in cholesterol levels would serve as a biomarker confirming target engagement. Other cardio biomarkers are cholesterol / myoglobin / creatine kinase (CK). For diabetes they are adiponectin / hemoglobin A1c, etc
+
+Biomarkers are also used to monitor potential toxic effects or off-target interactions. For example, liver enzymes in the blood (like ALT and AST) might be monitored as biomarkers to detect early signs of liver toxicity.
+
+## other important terms related to preclinical testing
+- **bioavalability** - какой процент и скорость с которой API (Active ParmaI Ingredient) достигает места действия. обычно сложно померять концентрацию в нужном органе  - поэтому обычно меряют концентрацию в крови (для внутривенный считают **bioavailability = 100**)
+- **bioequivalence** - изучают различные формы выпуска, способы доставки и тд и то как это влияет на эффективность лекарства
+
+
+## Filling Investigational New Drug (IND) application 
+
+
+
+
+
+----------------------------------------
+
+# Clinical testing
+Any drug development company has to complete  a **Investigational New Drug (IND)** applications based on they Pre-clinical testing and submit it to their local regulatory body (FDA etc) in order to enter clinical trial.
+
+For the UK it is the **Medicines and Healthcare Products Regulatory Agency**,  for USA it is  the **Food and Drug Administration, FDA** and for Europe, it is the **European Medicines Agency (EMA)**.
+
+Clinical trial phase might only be started after IND is approved. Approval depends on the results of pre-clinical testing if they are appealing to FDA.
+
+Before we start explaining clinical trials development proces it would be good to explain some terminology
+
+- **Sponsor**, this is an organization which pays for clinical study. This usually involvet a lot of money and it is done by a company who do drug develpment.
+- Sponsor hires a **CRO** (Contract Research Organization) usualy a respectfull clinical site which becomer responsible for enrolling patients and doing actual clinical trials.
+- **generics** - после истечения 20 лет, но 20 лает начинаются не с launch but from clinically?, small molecules очень легко скопировать в отличие от biologics - почти невозможно создать точную копию - и они навоюются biosimilars
+- **biosimilars** - должны проходить дополнительный clinical testing - чтобы доказать что они работают
+- **biosuperiors** - иногда biosimilars работают лучше чем оригинальное лекарство - тогда их назвают biosuperiors - их тоже надо тестировать клиники перед запуском
+
+
+## Phase Zero: INS health check
+Phase 0 trials are very small-scale studies that involve a few participants (typically fewer than 15). The primary goal is to gather preliminary data on the drug’s pharmacokinetics and ADME i.e. how the drug behaves in the body.
+
+Participants are given subtherapeutic doses of the drug (doses lower than those expected to have a therapeutic effect) and researchers collect data to understand how the drug is metabolized and how it moves through the body.
+
+As an outcome it is expected to get early insights into whether the drug behaves as expected in humans in terms of effect and side effects. This helps in making informed decisions about whether to proceed with further clinical development.
+
+
+## Pahase I: safety, testing on healthy people
+The goal is to determine **the highest dose** of a drug that can be safely administered to human without serious side affects.
+Typically is done on 20-100 healthy volunteers with so-called **dose escalation** method i.e. by administering gradually increased dose till side effects are starts to apper. Iy might be done in two ways
+- SAD - Single Ascending Dose studies - populating is diveded in several group and each grou have different dosage (ingle dose per participant, different doses across groups)
+- MAD - Multiple Ascending dose - dosage is gradually increased for every person (Multiple doses per participant, with doses potentially increasing)
+PK/PD are assesed.
+
+As an outcome the safe dosage range and identifies any potential side effects. This phase is crucial for determining how the drug can be administered safely in later phases.
+
+
+## Phase II: effectiveness in patients with disease
+Phase 2 trials aim to assess the drug’s efficacy with typically 100-300 patients who have the disease or condition that the drug is intended to treat.
+
+Is done in two stages
+- phase 2a - find a dose level that has a desired effect of treating the disease
+- phase 2 - this dose level is then used in phase 2b to confirm the efficacy
+
+This is the most rigorous trials where single blinded (when pacient does not know if he is taking drug or placebo) or double blinded (when doctor also doe not know it) are applied. 
+One of he problem on this stage is to enroll enough patients espesially if a rare disease is tested.
+
+Successful Phase 2 trials show that the drug has a therapeutic effect and justifies further testing in larger populations.
+
+
+
+## Pahase III: efficasy in large patient population
+This stage lasts several years  with >1000 patients in several countries, so multiple test sites are required. These are large-scale studies that aim to confirm the drug’s efficacy, monitor side effects, and compare the drug to standard treatments. 
+
+The drug is tested in a much larger and more diverse patient population.
+Researchers compare the new drug to existing standard treatments or placebos to determine its relative efficacy.
+
+On this stage a label expansion also possibe, i.e to test a drug agains other diseases.
+
+If Phase 3 trials are successful, the data are used to submit a New Drug Application (NDA) or Biologics License Application (BLA) to regulatory agencies. The result of this application is positive, the drug is approved for market and sales begin.
+
+
+## Phase IV: Launch and Post-Marketing Surveillance
+It starts after NDA or BLA are approved and drug starts selling on the market.
+pricing, brand name, package design must be selected
+
+Phase 4 trials occur after a drug has been approved for market and are designed to monitor the drug’s long-term effectiveness and impact, as well as to detect any rare or long-term side effects.
+
+Thousands of patients in real-world settings, often including those who were not part of earlier trial phases.
+
+Post launch surveliance included:
+- **pharmacovigilance** - constant observation of new drug after it goes live
+- adverse events - looking for new unexpected side effect after drug applied for large population
+- drug-drug interaction
+- on that stage are also investigated **drug repurposing** and **drug combinations**
 
 
 
 # AI in clinical
 - de-risk and accelerate clinical trials
+
+
+
+
+

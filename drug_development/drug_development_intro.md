@@ -34,7 +34,7 @@ For a drug discovery company choosing one or several diseases (condition, indica
 For a drug-repurposing company it might be other way round. Since they are trying to re-purpose the existing drug they might start from a drug then go back to find a target affected by this drug and then proceed to another disease, that is an idea behind repurposing.
 
 ### Target
-After pinpointing a disease a target must be selected, that is where the real discovery process has actually started. 
+After pinpointing the disease a target must be selected and that is where the real discovery process has actually started. 
 Target is usually a protein or a gene, which might be targeted to affect biological process in a needed way. 
 One might deside to look for completelly novel target or choose several existing targets from target databases and then try to find a novel drug for that target. 
 Both of these method can be heavily augmented by artificial inteligence method, we will write about concrete methods in our futher posts.
@@ -45,11 +45,20 @@ Binding or activity might not be strong or sufficient enough, so a next step, ca
 
 Again, this is a step where AI can help a lot.
 
-At the end of drug discovery process we have a **LEAD**,  a tripple of disease-target-drug which potentially can affect disease in a needed way.
+At the end of drug discovery process we have at least one **LEAD**,  a tripple of disease-target-drug which potentially can affect disease in a needed way.
 But all those conclusions so far were done outside of real biological systems, at cell line level, now the next step would be to check if it works on biological non-human models: mises etc.
 
 
 
 ## II: Preclinical development
+At the begining of this stage we have at least one lead molecule which affect a disease by interacting with target.
 
+Preclinical testing is mainly about **efficacy and safety (toxicity)**.
+It includes **in-vitro testing** and **in-vivo** testing on animal models, i.e. usually mices with induced disease-like conditions.
+
+Preclinical testing is mandatory, without it a regulatory authorities (FDA, etc) wont issue a permission to test it on humans.
+
+Preclinical testing usually includes:
+- **PK - pharmacokinetics**: the study of how a drug moves through the body over time, i.e. defining ADME profile (Absorption, Distribution, Metabolism, Excretion). On this stage different characteristics of the drug have been experimentally elucidated, like Concentration-Time Profile, The highest concentration etc
+- **PD - pharmacodynamics**: 
 
