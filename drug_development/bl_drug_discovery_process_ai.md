@@ -132,24 +132,24 @@ But all those conclusions so far were done outside of real biological systems, e
 
 ---------------------------------------------------
 
-# Preclinical testing
+# Stage II: Preclinical testing
 As a result of the drug discovery stage we have one or several candidate tripplets disease-target-drug and the goal of preclinical testing is to prove that it is effective and safe enough to try it on humans.
 
-A result of preclinical testing must be filling of **Investigational New Drug (IND)** application.
-
-Preclinical testing is mainly about **efficacy and safety (toxicity)**.
-It includes **in-vitro testing** and **in-vivo** testing on animal models, i.e. usually mices with induced disease-like conditions.
+So, preclinical testing is mainly about **efficacy and safety (toxicity)**. It includes **in-vitro testing** and **in-vivo** testing on animal models, i.e. usually mices with induced disease-like conditions.
 
 Preclinical testing is mandatory, without it a regulatory authorities (FDA, etc) wont issue a permission to test it on humans.
 
+Consequently, the result of preclinical testing must be filling of **Investigational New Drug (IND)** application.
+
+
 There are three parts in IND applications: 
-- **formulation development** - the best way to prepare a drug in the preclinical phase for its intended clinical use in patients
+- **formulation development** - explaining the best way to prepare a drug in the preclinical phase for its intended clinical use in patients
 - **pharmacology** (on animals) - 
-  - PK and ADME is the backbone of pharmacology.
-  - PD and safety 
+  - PK (pharmacokinetics) and ADME (explained later).
+  - PD (pharmacodynamics) and safety 
 - **toxicology** - he toxicology studies aim to look at the effects of longer-term drug exposure on the body, including repeat dose studies.
 
-also clinical protocol and investigator information - detailed protocol for proposed clinical stadies
+Also IND should contains clinical protocol and investigator information - detailed protocol for proposed clinical stadies
 
 
 ## PK - pharmacokinetics
@@ -162,7 +162,7 @@ PK is typically divided into four key stages, summarized by the acronym ADME:
 - **Metabolism**: Metabolism typically transforms the drug into more water-soluble compounds that can be more easily excreted from the body. 
 - **Excretion**: The process of eliminating the drug from the body, primarily through the kidneys (urine) or the liver (bile/feces). This stage determines how long the drug stays in the body and continues to have an effect.
 
-The usual outcome of these studies is to define
+The usual quantitative outcome of these studies is to define
 - Concentration-Time Profile: concentration-time curve
 - Key Pharmacokinetic Parameters: Cmax (Maximum Concentration): The highest concentration of the drug observed in the blood after administration, Tmax (Time to Maximum Concentration), AUC (Area Under the Curve): Represents the total drug exposure over time;  etc
 - Absorption Characteristics: Bioavailability: The fraction of the administered dose that reaches the systemic circulation in an active form (especially important for oral drugs)
@@ -183,12 +183,12 @@ At this PK stage there is a room for AI:
 Focuses on understanding the effects of a drug on the body, what drug does to a body.
 More precisely, it is the relationship between drug concentration and its biological or therapeutic effects.
 
-Identify Therapeutic and Toxic Effects. It is done by:
+It is done by:
 - more detailed understanding of the **Mechanism of Action (MoA)**: how the drug interacts with its biological target (e.g., receptors, enzymes). It usually requires revisiting primary target interactions as well as Identification  Off-Targets (additional proteins or receptors the drug interacts with, which could lead to side effects)
 
-- targets must be also revisited because in The initial target identification and validation often occur in simplified systems, such as cell lines or biochemical assays (in-vitro). However, a living organism's complexity (in-vivo) can reveal new interactions or effects not seen in these early models.
+- targets revisiting is also  must be done because in the initial target identification and validation often occur in simplified systems, such as cell lines or biochemical assays (in-vitro). However, a living organism's complexity (in-vivo) can reveal new interactions or effects not seen in these early models.
 
-Evaluate **Drug Potency and Efficacy** and Establish the **Effective Dose Range**
+In quantitativy terms it means to evaluate **Drug Potency and Efficacy** and Establish the **Effective Dose Range**
 - understanding Binding Affinity: IC50/EC50 Values: Concentration of the drug required to inhibit or activate 50% of its target (measure of drug potency)
 
 - Dose-Response Relationship: quantitative data on the relationship between drug concentration and the magnitude of its effect, usually as 2D plot
@@ -215,7 +215,7 @@ Biomarkers are also used to monitor potential toxic effects or off-target intera
 
 ----------------------------------------
 
-# Clinical testing
+# Stage III: Clinical testing
 Any drug development company has to complete  a **Investigational New Drug (IND)** applications based on they Pre-clinical testing and submit it to their local regulatory body (FDA etc) in order to enter clinical trial.
 
 For the UK it is the **Medicines and Healthcare Products Regulatory Agency**,  for USA it is  the **Food and Drug Administration, FDA** and for Europe, it is the **European Medicines Agency (EMA)**.
@@ -239,7 +239,7 @@ Participants are given subtherapeutic doses of the drug (doses lower than those 
 As an outcome it is expected to get early insights into whether the drug behaves as expected in humans in terms of effect and side effects. This helps in making informed decisions about whether to proceed with further clinical development.
 
 
-## Pahase I: safety, testing on healthy people
+## Phase I: safety, testing on healthy people
 The goal is to determine **the highest dose** of a drug that can be safely administered to human without serious side affects.
 Typically is done on 20-100 healthy volunteers with so-called **dose escalation** method i.e. by administering gradually increased dose till side effects are starts to apper. Iy might be done in two ways
 - SAD - Single Ascending Dose studies - populating is diveded in several group and each grou have different dosage (ingle dose per participant, different doses across groups)
@@ -252,7 +252,7 @@ As an outcome the safe dosage range and identifies any potential side effects. T
 ## Phase II: effectiveness in patients with disease
 Phase 2 trials aim to assess the drug’s efficacy with typically 100-300 patients who have the disease or condition that the drug is intended to treat.
 
-Is done in two stages
+It is done in two stages
 - phase 2a - find a dose level that has a desired effect of treating the disease
 - phase 2 - this dose level is then used in phase 2b to confirm the efficacy
 
@@ -263,7 +263,7 @@ Successful Phase 2 trials show that the drug has a therapeutic effect and justif
 
 
 
-## Pahase III: efficasy in large patient population
+## Phase III: efficasy in large patient population
 This stage lasts several years  with >1000 patients in several countries, so multiple test sites are required. These are large-scale studies that aim to confirm the drug’s efficacy, monitor side effects, and compare the drug to standard treatments. 
 
 The drug is tested in a much larger and more diverse patient population.
