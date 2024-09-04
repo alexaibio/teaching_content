@@ -1,14 +1,14 @@
-# Modern Drug Development Process and Artificial Intelligence (AI)
+# Modern Drug Development Process
 
 ## The drug discovery process
 Historically finding new medications to help cure diseases was originally driven either by chance or by the efforts of a single individual/lab who truly believed in their mission and dedicated a significant part of their life to finding a new drug. The discovery of novel drugs was rare, and these drugs often suffered from unexpected side effects or questionable effectiveness.
 
 ![Drug development cycle](img/drug_dev_cycle.jpg)
 
-Two major advancements changed the landscape. First, modern clinical trials, particularly double-blind and placebo-controlled studies, were developed to rigorously prove effectiveness and measure side effects. Second, high-throughput screening (HTS) transformed the process of discovering new chemicals from a random endeavor into a systematic one.
+Two major advancements changed the landscape. First, modern clinical trials, particularly double-blind and placebo-controlled studies, were developed to rigorously prove effectiveness and measure side effects. Second, high-throughput screening (HTS) transformed the process of discovering new chemicals from a random endeavor into a systematic one. 
 
 Today, there are two broad categories of drugs:
-- Small molecules (commonly referred to as drugs), which are synthesized by pharmaceutical companies.
+- Small molecules (commonly referred to as drugs), which are simple chemicals and they are synthesized by pharmaceutical companies.
 - Large molecules or biologics, which are typically proteins or other biological macromolecules. These are not synthesized chemically but are produced by living cells—such as bacterial, yeast, or mammalian cells—by biotechnology companies.
 
 The development of a market-ready drug usually takes up to 10 years and can cost up to a billion dollars.
@@ -23,10 +23,10 @@ Modern Drug Development Cycle consists of three major stages
 - Clinical development
 
 
-## I: Drug discovery stage
+## 1: Drug discovery stage
 Drug is never exists in isolation, so finding a drug essentially means finding a tripple disease-target-drug.
 
-In general. on a drug dicovery stage a drug discovery team must come up with several candidate triples **disease-target-drug** which then shall be hanged over to pre-clinical team for much more expensive developmnt.
+In general on a drug dicovery stage a drug discovery team must come up with several candidate triples **disease-target-drug** which then shall be hanged over to pre-clinical team for much more expensive testing, so the beter work is done on this stage the less money will be spent on the preclinical stage to rule out wrong candites.
 
 ### Disease
 For a drug discovery company choosing one or several diseases (condition, indication) to cure is usually a starting point. The company first decide to find a drug for lung cancer for example and then go next to target discovery and drug itself.
@@ -50,7 +50,7 @@ But all those conclusions so far were done outside of real biological systems, a
 
 
 
-## II: Preclinical development
+## 2: Preclinical development
 At the begining of this stage we have at least one lead molecule which affect a disease by interacting with target.
 
 Preclinical testing is mainly about **efficacy and safety (toxicity)**.
