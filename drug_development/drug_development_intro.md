@@ -1,82 +1,86 @@
 # Modern Drug Development Process in Brief
 
-## The drug discovery process
-Historically finding new medications to help cure diseases was originally driven either by chance or by the efforts of a single individual/lab who truly believed in their mission and dedicated a significant part of their life to finding a new drug. The discovery of novel drugs was rare, and these drugs often suffered from unexpected side effects or questionable effectiveness.
+## The Drug Discovery Process
+
+Historically, the search for new medications to treat diseases was driven either by chance or by the dedication of individuals or small labs who passionately believed in their mission and spent significant parts of their lives working toward discovering a new drug. Novel drug discoveries were rare, and these drugs often faced issues like unexpected side effects or questionable effectiveness.
 
 ![Drug development cycle](img/drug_dev_cycle.jpg)
 
-Two major advancements changed the landscape. First, modern clinical trials, particularly double-blind and placebo-controlled studies, were developed to rigorously prove effectiveness and measure side effects. Second, high-throughput screening (HTS) transformed the process of discovering new chemicals from a random endeavor into a systematic one. 
+Two major advancements have since transformed the landscape. First, the development of modern clinical trials, particularly double-blind and placebo-controlled studies, provided a rigorous way to prove a drug's effectiveness and measure its side effects. Second, high-throughput screening (HTS) shifted the process of discovering new chemicals from a random, hit-or-miss endeavor to a systematic and methodical process.
 
-Today, there are two broad categories of drugs:
-- Small molecules (commonly referred to as drugs), which are simple chemicals and they are synthesized by pharmaceutical companies.
-- Large molecules or biologics, which are typically proteins or other biological macromolecules. These are not synthesized chemically but are produced by living cells—such as bacterial, yeast, or mammalian cells—by biotechnology companies.
+Today, drugs are broadly categorized into two types:
+- Small molecules (commonly referred to as drugs): These are simple chemical compounds synthesized by pharmaceutical companies.
+- Large molecules or biologics: Typically proteins or other biological macromolecules, biologics are not synthesized chemically but are produced by living cells—such as bacterial, yeast, or mammalian cells—by biotechnology companies.
 
-The development of a market-ready drug usually takes up to 10 years and can cost up to a billion dollars.
+The development of a market-ready drug typically takes up to 10 years and can cost up to a billion dollars.
 
-Recently, significant efforts have been made by many companies to incorporate Artificial Intelligence (AI) techniques into the drug discovery process at various stages, with the goal of making it faster and more cost-effective.
+Recently, significant efforts have been made by many companies to integrate Artificial Intelligence (AI) techniques into various stages of the drug discovery process, aiming to make it faster and more cost-effective.
 
-It is also important to distinguish between the discovery of novel drugs and drug repurposing. The latter is usually much less expensive because the drug is simply repurposed for a new indication or dosage or packaging, allowing the company to skip the preclinical development stage and the Clinical Phase I safety stage altogether.
+It's also important to distinguish between the discovery of novel drugs and drug repurposing. Drug repurposing is usually much less expensive because it involves adapting an existing drug for a new indication, dosage, or packaging, allowing companies to bypass the preclinical development stage and Clinical Phase I safety trials.
 
-Modern Drug Development Cycle consists of three major stages
+The modern drug development cycle consists of three major stages:
 - Drug Discovery
 - Preclinical development
 - Clinical development
 
 
-## 1: Drug discovery stage
-Drug is never exists in isolation, so finding a drug essentially means finding a tripple disease-target-drug.
+## Stage 1: Drug Discovery
+A drug never exists in isolation; finding a drug essentially means discovering a triple combination of disease-target-drug.
 
-In general on a drug dicovery stage a drug discovery team must come up with several candidate triples **disease-target-drug** which then shall be hanged over to pre-clinical team for much more expensive testing, so the beter work is done on this stage the less money will be spent on the preclinical stage to rule out wrong candites.
+During the drug discovery stage, the team must identify several candidate triples (**disease-target-drug**) that will later be handed over to the preclinical team for more expensive testing. The better the work done at this stage, the less money will be spent in the preclinical phase to rule out unsuitable candidates.
+
+![Drug development cycle](img/discovery.png)
 
 ### Disease
-For a drug discovery company choosing one or several diseases (aka conditions, indications) to cure is usually a starting point. For example the company first decides to find a drug for lung cancer  and then go next step to target discovery and then to drug itself.
+For a drug discovery company, choosing one or more diseases (also referred to as conditions or indications) to target is usually the starting point. For example, a company might first decide to find a drug for lung cancer and then proceed to target discovery and eventually to drug identification.
 
-For a drug-repurposing company it might be other way round. Since they are trying to re-purpose the existing drug they might start from a drug then go back to find a target affected by this drug and then proceed to another disease, that is an idea behind repurposing.
+For a drug repurposing company, the process may work the other way around. Since they are trying to repurpose an existing drug, they might start with the drug, then identify the target it affects, and finally consider another disease that could be treated by this drug. This is the core idea behind drug repurposing.
 
 ### Target
-After pinpointing the disease a target must be selected and that is where the real discovery process has actually started. 
-Target is usually a protein or a gene, which might be targeted to affect biological process in a needed way. 
-One might deside to look for completelly novel target or choose several existing targets from target databases and then try to find a novel drug for that target. 
-Both of these method can be heavily augmented by artificial inteligence method, we will write about concrete methods in our futher posts. 
-The target discovery is a large topic by itself and we will address it in the follwoed more detailed article.
+After pinpointing the disease, the next step is to select a target—this is where the true discovery process begins. The target is usually a protein or gene that can be influenced to affect a biological process in the desired way.
+
+Researchers may choose to investigate completely novel targets or select from existing ones in target databases and then attempt to discover a new drug for that target. Both approaches can be significantly enhanced by artificial intelligence methods, which we'll discuss in more detail in future posts.
+
+Target discovery is a large topic in itself and will be covered more thoroughly in a subsequent article.
+
 
 ### Drug 
-Finding a drug started from a so-called **hit identification**, i.e. finding a chemical compounds (referred to as "hits") that interact with the target identified in the previous step. 
 
-Binding or activity might not be strong or sufficient enough, so a next step, called **lead optimization** is nessesary. At this step Optimization of Activity, Reduction of Toxicity and Improvement of Drug-Like Properties might be performed.
+Finding a drug begins with **hit identification**, which involves discovering chemical compounds (referred to as "hits") that interact with the target identified in the previous step.
 
-Again, this is a step where AI can help a lot and again we will adress it in more detailed article.
+However, the initial binding or activity might not be strong or sufficient, so the next step, called lead optimization, is necessary. During this stage, researchers focus on optimizing activity, reducing toxicity, and improving drug-like properties.
 
-At the end of drug discovery process we have at least one **LEAD**, i.e  a tripple of disease-target-drug which potentially can affect disease in a needed way.
-But all those conclusions so far were done outside of real biological systems, at cell line level or even in-silico, now the next step would be to check if it in a real life settings, with animal models etc.
+Again, this is an area where AI can make a significant impact, and we will address this in more detail in future articles.
 
-
-
-## 2: Preclinical development
-At the begining of this stage we have at least one lead molecule which affect a disease by interacting with target.
-
-Preclinical testing is mainly about **efficacy and safety (toxicity)**.
-It includes **in-vitro testing** and **in-vivo** testing on animal models, i.e. usually mices with induced disease-like conditions.
-
-Preclinical testing is mandatory, without it a regulatory authorities (FDA, etc) wont issue a permission to test it on humans.
-
-As a result of the drug discovery stage we have one or several candidate tripplets disease-target-drug and the goal of preclinical testing is to prove that it is effective and safe enough to try it on humans.
-
-So, preclinical testing is mainly about **efficacy and safety (toxicity)**. It includes **in-vitro testing** and **in-vivo** testing on animal models, i.e. usually mices with induced disease-like conditions.
-
-Preclinical testing is mandatory, without it a regulatory authorities (FDA, etc) wont issue a permission to test it on humans.
-
-Consequently, the result of preclinical testing must be filling of **Investigational New Drug (IND)** application.
+At the end of the drug discovery process, we should have at least one **LEAD**, a triple combination of disease-target-drug that has the potential to affect the disease as needed. However, all conclusions drawn thus far have been made outside of real biological systems—at the cell line level or even in silico. The next step is to verify these findings in real-life settings, using animal models and other methods.
 
 
-There are three parts in IND applications: 
-- **formulation development** - explaining the best way to prepare a drug in the preclinical phase for its intended clinical use in patients
-- **pharmacology** (on animals) - 
-  - PK (pharmacokinetics) and ADME (Absorption, Distribution, Metabolism, Excretion).
-  - PD (pharmacodynamics) and safety 
-- **toxicology** - he toxicology studies aim to look at the effects of longer-term drug exposure on the body, including repeat dose studies.
+
+## Stage 2: Preclinical Testing
+At the beginning of this stage, we have at least one lead molecule that affects a disease by interacting with its target.
+
+Preclinical testing is primarily focused on **efficacy and safety (toxicity)**. This stage involves both **in vitro** testing (performed in cells outside of a living organism) and **in vivo** testing (conducted on animal models, typically mice with induced disease-like conditions).
+
+Preclinical testing is mandatory; without it, regulatory authorities (such as the FDA) will not grant permission to proceed to human trials.
+
+By the end of the drug discovery stage, we have one or several candidate disease-target-drug combinations. The goal of preclinical testing is to demonstrate that these candidates are effective and safe enough to justify testing in humans.
+
+Thus, preclinical testing is crucial for assessing efficacy and safety (toxicity). It encompasses **in vitro** and **in vivo** testing, with the latter typically performed on animal models that mimic the disease conditions.
+
+Preclinical testing is not optional; regulatory authorities like the FDA require it before a drug can be tested in humans.
+
+The culmination of preclinical testing is the submission of an **Investigational New Drug (IND)** application.
+
+The IND application consists of three key parts:
+- **Formulation development**: Describes the best method to prepare the drug during the preclinical phase for its intended clinical use in patients later on.
+- **Pharmacology** (in animals):
+    - **PK (pharmacokinetics)** and ADME (Absorption, Distribution, Metabolism, Excretion).
+    - **PD (pharmacodynamics)** and safety assessments.
+- **Toxicology**: These studies examine the effects of longer-term drug exposure on the body, including repeat-dose studies.
 
 
+
+### Pharmacokinetics
 
 **Pharmacokinetics (PK)** refers to the study of how a drug moves through the body over time (what the body does to a drug). 
 
@@ -86,44 +90,44 @@ PK is typically divided into four key stages, summarized by the acronym ADME:
 - **Metabolism**: Metabolism typically transforms the drug into more water-soluble compounds that can be more easily excreted from the body. 
 - **Excretion**: The process of eliminating the drug from the body, primarily through the kidneys (urine) or the liver (bile/feces). This stage determines how long the drug stays in the body and continues to have an effect.
 
-The usual quantitative outcome of these studies is to define such quantities as concentration-time curve, Cmax (Maximum Concentration): The highest concentration of the drug observed in the blood after administration, Tmax (Time to Maximum Concentration), AUC (Area Under the Curve): Represents the total drug exposure over time;  etc
+The typical quantitative outcomes of these studies include measures such as the concentration-time curve, Cmax (Maximum Concentration): the highest concentration of the drug observed in the blood after administration; Tmax (Time to Maximum Concentration), and AUC (Area Under the Curve), which represents the total drug exposure over time; many others
 
+
+### Pharmacodynamics
 
 **Pharmacodynamics (PD)** focuses on understanding the effects of a drug on the body, what drug does to a body. More precisely, it is the relationship between drug concentration and its biological or therapeutic effects. 
 
 It is done by more detailed understanding of the **Mechanism of Action (MoA)**: how the drug interacts with its biological target (e.g., receptors, enzymes). It usually requires revisiting primary target interactions as well as Identification  Off-Targets (additional proteins or receptors the drug interacts with, which could lead to side effects)
 
-
 In quantitativy terms evaluating **Drug Potency and Efficacy** and Establish the **Effective Dose Range**
 means elusidating IC50/EC50 Values (Concentration of the drug required to inhibit or activate 50% of its target - measure of drug potency) and quantitative data on the relationship between drug concentration and the magnitude of its effect, usually as 2D plot.
 
-Once again, the result of Preclinical stage must be Filling Investigational New Drug (IND) application.
+Once again, the outcome of the preclinical stage is the submission of an Investigational New Drug (IND) application.
 
 
-# 3: Clinical testing
 
-Any drug development company has to complete  a **Investigational New Drug (IND)** applications based on they Pre-clinical testing and submit it to their local regulatory body (FDA etc) in order to enter clinical trial.
+# Stage 3: Clinical Testing
 
-For the UK it is the **Medicines and Healthcare Products Regulatory Agency**,  for USA it is  the **Food and Drug Administration, FDA** and for Europe, it is the **European Medicines Agency (EMA)**.
+Any drug development company must complete an **Investigational New Drug (IND)** application based on their preclinical testing and submit it to the appropriate regulatory body (such as the FDA) in order to begin clinical trials.
 
-Clinical trial phase might only be started after IND is approved. Approval depends on the results of pre-clinical testing if they are appealing to FDA.
+In the UK, the regulatory body is the Medicines and Healthcare Products Regulatory Agency (MHRA); in the USA, it is the Food and Drug Administration (FDA); and in Europe, it is the European Medicines Agency (EMA).
 
-Clinical phase is usually done in three phases.
+Clinical trial phase might only be started after the IND is approved. Approval depends on the results of preclinical testing and if they are satisfactory to the regulatory authority.
 
-**Phase I: testing on healthy people for safety**, the goal is to determine **the highest dose** of a drug that can be safely administered to human without serious side affects. As an outcome the safe dosage range and identifies any potential side effects. This phase is crucial for determining how the drug can be administered safely in later phases.
+Clinical trials are generally conducted in three phases:
 
-**Phase II: testing effectiveness in patients with disease**, aim to assess the drug’s efficacy with typically 100-300 patients who have the disease or condition that the drug is intended to treat.
+**Phase I: Testing on Healthy Volunteers for Safety**
+The goal is to determine the highest dose of a drug that can be safely administered to humans without serious side effects. The outcome of this phase is the establishment of a safe dosage range and the identification of any potential side effects. This phase is crucial for determining how the drug can be administered safely in subsequent phases.
 
-This is the most rigorous trials where single blinded (when pacient does not know if he is taking drug or placebo) or double blinded (when doctor also doe not know it) are applied. 
-One of he problem on this stage is to enroll enough patients espesially if a rare disease is tested.
+**Phase II: Testing Effectiveness in Patients with the Disease**
+This phase aims to assess the drug’s efficacy, typically involving 100-300 patients who have the disease or condition that the drug is intended to treat. These are the most rigorous trials, often using single-blind (where the patient does not know if they are receiving the drug or a placebo) or double-blind (where neither the patient nor the doctor knows) designs. A challenge in this phase is recruiting enough patients, particularly for rare diseases. Successful Phase II trials demonstrate that the drug has a therapeutic effect, justifying further testing in larger populations.
 
-Successful Phase 2 trials show that the drug has a therapeutic effect and justifies further testing in larger populations.
 
-**Phase III: efficasy in large patient population**, The drug is tested in a much larger and more diverse patient population.
-Researchers compare the new drug to existing standard treatments or placebos to determine its relative efficacy.
+**Phase III: Efficacy in a Large Patient Population**
+In this phase, the drug is tested in a much larger and more diverse patient population. Researchers compare the new drug to existing standard treatments or placebos to determine its relative efficacy. If Phase III trials are successful, the data are used to submit a **New Drug Application (NDA)** or **Biologics License Application (BLA)** to regulatory agencies. If the application is approved, the drug is approved for market release and sales.
 
-If Phase 3 trials are successful, the data are used to submit a New Drug Application (NDA) or Biologics License Application (BLA) to regulatory agencies. The result of this application is positive, the drug is approved for market and sales begin.
 
-There is also Phase IV which is referred as Launch and Post-Marketing Surveillance. At this stage drug is already on marked and used in Real World Settings (RWS), so some more side-effects might be elusidated and phase 3 is designed to oversee that drug even no this stage.
+**Phase IV: Launch and Post-Marketing Surveillance**
+At this stage, the drug is already on the market and being used in real-world settings (RWS). Ongoing surveillance continues to monitor the drug for any additional side effects or issues that may not have been evident during earlier trials. Phase IV is crucial for ensuring the drug remains safe and effective over the long term.
 
 
