@@ -29,7 +29,7 @@ A drug never exists in isolation; finding a drug essentially means discovering a
 
 During the drug discovery stage, the team must identify several candidate triples (**disease-target-drug**) that will later be handed over to the preclinical team for more expensive testing. The better the work done at this stage, the less money will be spent in the preclinical phase to rule out unsuitable candidates.
 
-![Drug development cycle](img/discovery.png)
+![Drug descovery stage](img/discovery.jpg)
 
 ### Disease
 For a drug discovery company, choosing one or more diseases (also referred to as conditions or indications) to target is usually the starting point. For example, a company might first decide to find a drug for lung cancer and then proceed to target discovery and eventually to drug identification.
@@ -66,6 +66,8 @@ Preclinical testing is mandatory; without it, regulatory authorities (such as th
 By the end of the drug discovery stage, we have one or several candidate disease-target-drug combinations. The goal of preclinical testing is to demonstrate that these candidates are effective and safe enough to justify testing in humans.
 
 Thus, preclinical testing is crucial for assessing efficacy and safety (toxicity). It encompasses **in vitro** and **in vivo** testing, with the latter typically performed on animal models that mimic the disease conditions.
+
+![Preclinical Testing](img/preclinical.jpg)
 
 Preclinical testing is not optional; regulatory authorities like the FDA require it before a drug can be tested in humans.
 
@@ -113,6 +115,8 @@ Any drug development company must complete an **Investigational New Drug (IND)**
 In the UK, the regulatory body is the Medicines and Healthcare Products Regulatory Agency (MHRA); in the USA, it is the Food and Drug Administration (FDA); and in Europe, it is the European Medicines Agency (EMA).
 
 Clinical trial phase might only be started after the IND is approved. Approval depends on the results of preclinical testing and if they are satisfactory to the regulatory authority.
+
+![Clinical testing](img/clinical.jpg)
 
 Clinical trials are generally conducted in three phases:
 
