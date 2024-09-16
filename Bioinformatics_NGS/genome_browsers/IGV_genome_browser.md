@@ -1,33 +1,38 @@
-# Genome browsers: a beginner's guide
-
-## Intro
-This intro is not intened for professional who definitelly know how and why they need a genome browser. This article is for those who just started with looking on ngs genomic data or may be a person who just did a consumer genomic sequensing in companies similar to 23andme and wants to look a bit deeper into data then looking throug simple text reports they provided.
-So, lets say you are a curios person who desided to explore what is underhood of text consumer genomics report, you downloaded your own data from your personal online cabinet and just thinking what next?
+# Genome browsers: a first look at your genome
 
 ## Why you might need a genome browser?
-First of all, the typical result of processed next generation sequensing (NGS, https://offsiteteam.com/knowledge-base/dna__first_generation_sequencing__next_generation_sequencing ) whether it is whole genome sequencing (WGS) or whole exome sequensing (WES) is annotated VCF file. VCF file contains all individual mutations up to length of 50bp. The typical size of human VCF file with WGS data is in a range of 1G - 2G depending on annotation. 
+A first intention after you finally got you Nexg Generation Sequensing (NGS) data is to take a first look on it and the most convinoent tool for it is genome browser.
 
-Often it is also usefull to take a look on  .BAM file which provides information about coverage of each mutation (depth) so we know the level of certainty for each mutation. The size of BAM file is about 40G (if the sequencing was done with 40x coverage).
+The typical result of processed [NGS data](https://offsiteteam.com/knowledge-base/dna__first_generation_sequencing__next_generation_sequencing) whether it is whole genome sequencing (WGS) or whole exome sequensing (WES) is annotated VCF file. 
 
-Of cource you can just explore these large VCF and BAM files in text editor (it has quite a clear human readable format) or yuo can use self-written Python/bash script to explore them, but it makes much more sence to use some kind of tool to do that. One of such tool might be a genome browser.
+VCF file contains all individual mutations up to length of 50bp. The typical size of human VCF file with WGS data is in a range of 1G - 2G depending on annotation. 
+
+Often it is also informative to take a look on .BAM file which provides information about coverage of each mutation (depth) so we know the level of certainty for each mutation. The size of BAM file is about 40G (if the sequencing was done with 40x coverage).
+
+Of cource you can just explore these large VCF and BAM files in text editor (it has quite a clear human readable format) or you can use self-written Python/bash script to explore them, but it makes much more sence to use some kind of tool to do that. One of such tool might be a genome browser.
 
 
 ## Which genome browsers exists?
 
 The most widely knowns are the following four:
 - IVG ((Integrative Genomics Viewer))
+- IGB  ?????
+- JBrowse desktop ???? - https://jbrowse.org/jb2/
 - Ensembl Genome Browser
 - UCSC Genome Browser
 - NCBI Genome Data Viewer (GDV)
 
-IGV is the only one from the four above which can be installed locally, the rest are purely online prowsers.
+Genome broswers might be online and offline (stand-alone) and IGV is probably the most known from above offline browser.
 
-Being online/offline provides its own pros and cons. On one hand online genome browsers do not require any installation or updates and always provides up-todate annotation information. On the other hand uploading 1G VCF might be a problem and it is not sequre, after all you are uploading your very sensitive information to somemobody else's server.
+Being online/offline provides its own pros and cons. On one hand online genome browsers do not require any installation or updates and always provides up-to-date genome and variation annotation information. On the other hand uploading 1G VCF might be a problem and it is also not secure, after all you are uploading a very sensitive information to somemobody else's server.
+Also having browser on your local computer is generally faster and provide less latency with improve usr experience.
 
-In this review we will mostly explain IGV genome browser because amoung all four above it is the only one which is offline.
+In this review I will concentrate on IGV genome browser because amoung all four above it is the only one which is offline.
 
 
 ## IGV genome browser
+The Integrative Genomics Viewer (IGV) from Broad Insitute (Broad Institute of MIT and Harvard, a biomedical and genomic research center located in Cambridge, Massachusetts, United States)
+
 IGV can be downloaded from their site https://igv.org/doc/desktop/.
 
 IGV is a Java application, so Java also must be installed on your computer.
