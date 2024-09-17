@@ -1,48 +1,27 @@
-# Genome browsers: a first look at your genome
 
-## Why you might need a genome browser?
-A first intention after you finally got you Nexg Generation Sequensing (NGS) data is to take a first look on it and the most convinoent tool for it is genome browser.
+# The Integrative Genomics Viewer (IGV) genome browser
 
-The typical result of processed [NGS data](https://offsiteteam.com/knowledge-base/dna__first_generation_sequencing__next_generation_sequencing) whether it is whole genome sequencing (WGS) or whole exome sequensing (WES) is annotated VCF file. 
+The Integrative Genomics Viewer (IGV) is a genome browser from Broad Insitute (Broad Institute of MIT and Harvard, a biomedical and genomic research center located in Cambridge, Massachusetts, United States).
 
-VCF file contains all individual mutations up to length of 50bp. The typical size of human VCF file with WGS data is in a range of 1G - 2G depending on annotation. 
+It is one of the most popular offline vizualization tool for exploring Next Generatio (NGS) data.
 
-Often it is also informative to take a look on .BAM file which provides information about coverage of each mutation (depth) so we know the level of certainty for each mutation. The size of BAM file is about 40G (if the sequencing was done with 40x coverage).
-
-Of cource you can just explore these large VCF and BAM files in text editor (it has quite a clear human readable format) or you can use self-written Python/bash script to explore them, but it makes much more sence to use some kind of tool to do that. One of such tool might be a genome browser.
+It this post I will try to give a small unofficial guide how to start with it and what are the main features. 
 
 
-## Which genome browsers exists?
-
-The most widely knowns are the following four:
-- IVG ((Integrative Genomics Viewer))
-- IGB  ?????
-- JBrowse desktop ???? - https://jbrowse.org/jb2/
-- Ensembl Genome Browser
-- UCSC Genome Browser
-- NCBI Genome Data Viewer (GDV)
-
-Genome broswers might be online and offline (stand-alone) and IGV is probably the most known from above offline browser.
-
-Being online/offline provides its own pros and cons. On one hand online genome browsers do not require any installation or updates and always provides up-to-date genome and variation annotation information. On the other hand uploading 1G VCF might be a problem and it is also not secure, after all you are uploading a very sensitive information to somemobody else's server.
-Also having browser on your local computer is generally faster and provide less latency with improve usr experience.
-
-In this review I will concentrate on IGV genome browser because amoung all four above it is the only one which is offline.
-
-
-## IGV genome browser
-The Integrative Genomics Viewer (IGV) from Broad Insitute (Broad Institute of MIT and Harvard, a biomedical and genomic research center located in Cambridge, Massachusetts, United States)
-
-IGV can be downloaded from their site https://igv.org/doc/desktop/.
+## Installation
 
 IGV is a Java application, so Java also must be installed on your computer.
+IGV can be downloaded from their site https://igv.org/doc/desktop/.
 
+
+## First look
 When you start it first time it looks a bit empty, like this
 
 ![IGV genome browser right after first start](img/igv_1.png)
 
 At the beginning you only can see the name of genome reference (see genome reference article - https://offsiteteam.com/blog/reference-genomes_ncbi-ucsc-embl-notations) (GRCh38) in the upper left corner, then names of chromosome (1-22, X, Y) and "RefSeq Genes" window which is supposed to show simple gene annotation, i.e. indicate a range which is occupied by each gene, but because in human genome we have ~19k protein coding genes on a whole genome scale we can just see a distribution of number of genes by chromosomes.
 
+## Loading your data
 The next thing we have to do is to load our VCF file with mutations, lets go File->Load from file and choose our VCF file on our local machine.
 Almost nothing will be changed and in order to see the actual mutations we need to select a certain chromosome and then zoom in till be see actual mutations along with gene annotation
 
@@ -60,12 +39,11 @@ Then an algorithm called genome aligner is run over all these short reads and al
 The more "pile" under a certain utation the more confident we are about that mutation, it is said the mutation has 40x coverage for example.
 
 
-
+## Exploring individual mutations
 But lets go back to IGV genome browser. After loading our VCF and BAM files the next step would be to double click on any mutation
 
 ![VCF and BAM together](img/igv_4.png)
 
-## Variant description window
 
 Lets explore a bit this information about each mutation.
 You can read this fields as follows
@@ -91,12 +69,21 @@ AF = 0.25, 0.75, or other values: These values can occur, but they are less comm
 - Mosaicism: This occurs when not all the cells in an individual have the same genetic makeup. Some cells may carry the mutation, while others do not. This can lead to an allele frequency that is neither 0.5 nor 1, depending on the proportion of cells with the mutation.
 - Somatic Mutations: In cancer or other diseases, some tissues might acquire mutations that are not present in every cell of the body. For example, a tumor sample may have a mutation present in only a subset of cells, leading to an AF between 0 and 1 (e.g., 0.25 or 0.75).
 - Copy Number Variations (CNVs): In cases where a region of the genome is duplicated or deleted (copy number variation), the allele frequency can deviate from the expected 0.5 or 1. For example, if you have a duplication of a region with three copies of a gene, and two copies carry the reference allele while one copy carries the alternative allele, the allele frequency might be around 0.33.
-- 
+  
 
 ### Variant attributes block.
-Here some information from genome annotator tools, such as VEP, ...
+After variant calling and having VCF file with all mutations the next step is usually annotation of those mutations.
+It is usually done with ngs annotations tools and the most popular such tools are VEP, Annovar and SnpEff. 
+
+Describing these tools is out of scope of this post but I would just say that each of the tools above will add a specific INFO section to each variant in VCF file and those sections will be shown in Variant Attributes block by IGV.
+As we can see in our case we have a CSQ (which means Consequence) block which was added by VEP. SnpEff adds the same infrmation under ANN tag. Also some other tags might be added like IMPACT etc.
+
+In our case of CSQ block we can see every mutation annotated with possible consequnces, usually divided by different transcript with corresponded Ensemble ID. The consequence on a  sertain transcrpit are divided into several cathegories
+- High Impact: transcript ablation, frameshift, stop loss etc
+- Moderate Impact: Missense variant, Inframe insertion, Protein altering etc
+- Low Impact: Synonymous variant, Start retained_variant etc
 
 
 
-## Ensembl Genome Browser
+
 
