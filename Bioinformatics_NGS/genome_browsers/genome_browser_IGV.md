@@ -36,7 +36,7 @@ To understand what BAM file is and why we need it we need a short excurse into h
 
 Roughly, NGS sequencing works like that: the DNA strand under investigation is cut into pieces of approximatelly 250 bp, then each piece is sequenced and they all are collected together in so-called raw data file, i.e gigantic fastq file where all those short sequences are just piles one after another. 
 
-(TBD: example from internet)
+![Example and format of FASTQ file](img/fastq.png)
 
 Then an algorithm which is called genome aligner is run over all these short reads and aligh them to a reference genome and places it in BAM file.
 The more "pile" under a certain utation the more confident we are about that mutation, it is said the mutation has 40x coverage for example.
