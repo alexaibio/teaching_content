@@ -1,17 +1,17 @@
 
 # The Integrative Genomics Viewer (IGV) genome browser
 
-The Integrative Genomics Viewer (IGV) is a genome browser from Broad Insitute (Broad Institute of MIT and Harvard, a biomedical and genomic research center located in Cambridge, Massachusetts, United States).
+The Integrative Genomics Viewer (IGV) is a NGS genome data vizualization tool from Broad Insitute (Broad Institute of MIT and Harvard, a biomedical and genomic research center located in Cambridge, Massachusetts, United States).
 
-It is one of the most popular offline vizualization tool for exploring Next Generatio (NGS) data.
+It is one of the most popular offline genome browsers for exploring Next Generatio (NGS) data.
 
-It this post I will try to give a small unofficial guide how to start with it and what are the main features. 
+Since browsers like these are typically designed for expert users, they often have poor usability, making it unclear how to get started or interpret the data you see. This post aims to bridge that gap and provide an easy-to-follow guide for using the IGV browser along with providing some information about how to interpret mutation annotations.
 
 
 ## Installation
 
-IGV is a Java application, so Java also must be installed on your computer.
-IGV can be downloaded from their site https://igv.org/doc/desktop/.
+IGV is a Java application, so first Java also must be installed on your computer.
+The, IGV can be downloaded from their site https://igv.org/doc/desktop/ and insatted.
 
 
 ## First look
@@ -19,39 +19,55 @@ When you start it first time it looks a bit empty, like this
 
 ![IGV genome browser right after first start](img/igv_1.png)
 
-At the beginning you only can see the name of genome reference (see genome reference article - https://offsiteteam.com/blog/reference-genomes_ncbi-ucsc-embl-notations) (GRCh38) in the upper left corner, then names of chromosome (1-22, X, Y) and "RefSeq Genes" window which is supposed to show simple gene annotation, i.e. indicate a range which is occupied by each gene, but because in human genome we have ~19k protein coding genes on a whole genome scale we can just see a distribution of number of genes by chromosomes.
+At the beginning you only can see the name of current genome reference (see genome reference article - https://offsiteteam.com/blog/reference-genomes_ncbi-ucsc-embl-notations) (GRCh38) in the upper left corner, then names of chromosome (1-22, X, Y) and "RefSeq Genes" window which is supposed to show simple gene annotation, i.e. indicate a range which is occupied by each gene, but because in human genome we have ~19k protein coding genes on a агдд genome scale we can just see a distribution of number of genes by chromosomes, so we need to zoom in to see more.
+
+You can change that refernce to another one for example GRC37 or even load your own specific reference, by be avare that if you use your own assembly some features like looking by gene name wont work for some reason, so the better choice is to use IGV internal references.
 
 ## Loading your data
-The next thing we have to do is to load our VCF file with mutations, lets go File->Load from file and choose our VCF file on our local machine.
-Almost nothing will be changed and in order to see the actual mutations we need to select a certain chromosome and then zoom in till be see actual mutations along with gene annotation
+Now it is time to load your own VCF file with mutations. Lets go to "File->Load from file" and choose your VCF file to load on our local machine.
+
+Almost nothing will be changed and in order to see the actual mutations we need to select a certain chromosome and then zoom in (upper left corner) till we can see actual mutations along with gene annotation.
 
 ![Uploading VCF file](img/igv_2.png)
 
 
 Now we can upload BAM file and see what is an exact coverage of an every region so we can uderstand certainty behind each mutation.
+To understand what BAM file is and why we need it we need a short excurse into how HGS sequencing works
+
+Roughly, NGS sequencing works like that: the DNA strand under investigation is cut into pieces of approximatelly 250 bp, then each piece is sequenced and they all are collected together in so-called raw data file, i.e gigantic fastq file where all those short sequences are just piles one after another. 
+
+(TBD: example from internet)
+
+Then an algorithm which is called genome aligner is run over all these short reads and aligh them to a reference genome and places it in BAM file.
+The more "pile" under a certain utation the more confident we are about that mutation, it is said the mutation has 40x coverage for example.
+
+BAM file format is a file which describes co-called genome intervals, in our case intervals are raw reads from sequencer machine and how they are mapped to a reference genome. Having this information browser can calculate and vizualize the exact coverage (sequencing depth) for every mutation in VCF. We can see that depth as a pile of reads on every genome position.
 
 ![VCF and BAM together](img/igv_3.png)
 
-Note that in order to IGV correctly display both VCF and BAM file they need to be indexed by tabix and have accompanied .tbi file. 
+Note that in order to IGV correctly display both VCF and BAM file they need to be indexed by tabix and have accompanied .tbi file. Wihtout this tbi index some features simply silently wont work and you might spend lots of time figuring out why.
 
-Why do we need this BAM file with coverage (depth)? To make it cler we nned a short excurse into how NGS works. The point is the NGS works like that: the DNA strand under investigation is cut in pieces of approximatelly 250 bp, then each piece is sequenced and they all are collected together in so called raw data file, i.e gigantic fastq file where all those short sequences are just piles one after another. 
-Then an algorithm called genome aligner is run over all these short reads and aligh them to a reference genome and you can see that alignment in BAM file on the picture above.
-The more "pile" under a certain utation the more confident we are about that mutation, it is said the mutation has 40x coverage for example.
 
 
 ## Exploring individual mutations
-But lets go back to IGV genome browser. After loading our VCF and BAM files the next step would be to double click on any mutation
+After loading our VCF and BAM files the next step would be to double click on any mutation and see the following window with information about that mutation.
 
 ![VCF and BAM together](img/igv_4.png)
 
 
-Lets explore a bit this information about each mutation.
-You can read this fields as follows
+Lets explore a bit this information about each mutation and understand what it means.
+
+### general information provided by variant caller
 - ID: this is socalled rs-id, a unique identifier of each mutation. Be carefull, this id is specifically linked to a genome reference you have aligned your genome. Those ids are collected in a dataabse called dbSNP and updated every years, so it is crusial to re-annotate your vcf file once in a while
+
 - Ch/Position: it is a chromosome numner and a position in this chromosome of your mutation
+
 - Reference / Althernate: this is a mutation itself. It this particular case the reference is T but your genome in question has A on this position, so this is SNP (single nucleotode polymorphism)
+
 - Qual: this is a quality assigned to every position, QUAL scores above 20-30 are typically considered confident. 1909 is a very confident value. Technicaly the QUAL score is usually calculated as a Phred-scaled probability that the observed variant is a false positive. For example, a QUAL score of 30 would indicate that there's a 1 in 1000 (0.1%) chance that the variant is incorrect, because:
+
 - Type: migth be SNP (single nucleotide polymorphism), ...
+
 - Is Filtered Out: this is a filed set by Variant caller and might be PASS, LowQual etc. Once variants are identified, the variant caller applies certain quality filters to assess whether the identified variant meets the desired confidence level, and then populates the FILTER field accordingly.
 Based on these metrics, the variant caller assigns a value to the FILTER field:
     - PASS: If the variant passes all the filtering criteria.
@@ -83,6 +99,9 @@ In our case of CSQ block we can see every mutation annotated with possible conse
 - Moderate Impact: Missense variant, Inframe insertion, Protein altering etc
 - Low Impact: Synonymous variant, Start retained_variant etc
 
+
+## Conclusion
+Genome browser is usually a first tool you can use to see your variants. Nest task might be  Analyzing these variants (variant interpretation) and it is not an obvios task. 
 
 
 
