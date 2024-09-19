@@ -3,15 +3,15 @@
 
 The Integrative Genomics Viewer (IGV) is a NGS genome data vizualization tool from Broad Insitute (Broad Institute of MIT and Harvard, a biomedical and genomic research center located in Cambridge, Massachusetts, United States).
 
-It is one of the most popular offline genome browsers for exploring Next Generatio (NGS) data.
+It is one of the most popular offline genome browsers for exploring Next Generation Sequence (NGS) data.
 
-Since browsers like these are typically designed for expert users, they often have poor usability, making it unclear how to get started or interpret the data you see. This post aims to bridge that gap and provide an easy-to-follow guide for using the IGV browser along with providing some information about how to interpret mutation annotations.
+Since browsers like these are typically designed for expert users, they often lack usability, and sometimes it is hard to get started with it. This post aims to bridge that gap and provide an easy-to-follow guide for using the IGV browser along with providing some information about how to interpret mutation annotations.
 
 
 ## Installation
 
-IGV is a Java application, so first Java also must be installed on your computer.
-The, IGV can be downloaded from their site https://igv.org/doc/desktop/ and insatted.
+IGV is a Java application, so Java  must be installed on your computer.
+IGV itself can be downloaded from their site https://igv.org/doc/desktop/ and then installed locally.
 
 
 ## First look
@@ -19,14 +19,16 @@ When you start it first time it looks a bit empty, like this
 
 ![IGV genome browser right after first start](img/igv_1.png)
 
-At the beginning you only can see the name of current genome reference (see genome reference article - https://offsiteteam.com/blog/reference-genomes_ncbi-ucsc-embl-notations) (GRCh38) in the upper left corner, then names of chromosome (1-22, X, Y) and "RefSeq Genes" window which is supposed to show simple gene annotation, i.e. indicate a range which is occupied by each gene, but because in human genome we have ~19k protein coding genes on a агдд genome scale we can just see a distribution of number of genes by chromosomes, so we need to zoom in to see more.
+As it starts we only can see the name of current genome reference (see genome reference article - https://offsiteteam.com/blog/reference-genomes_ncbi-ucsc-embl-notations) (GRCh38) in the upper left corner, then names of chromosome (1-22, X, Y) and "RefSeq Genes" window which is supposed to show simple gene annotation, i.e. indicate a range which is occupied by each gene.  
+To see this gene annotation yoo have to zoom firt, because in human genome we have ~19k protein coding genes and on a whole genome scale we can only just see a distribution of number of genes by chromosomes, so we need to zoom in to see more.
 
-You can change that refernce to another one for example GRC37 or even load your own specific reference, by be avare that if you use your own assembly some features like looking by gene name wont work for some reason, so the better choice is to use IGV internal references.
+You can choose another refernce for example GRC37 or even load your own specific reference FASTA file, but be avare that if you use your own assembly some features like searching by gene name might not work for some reason, so the better choice is to use IGV internal references.
+
 
 ## Loading your data
 Now it is time to load your own VCF file with mutations. Lets go to "File->Load from file" and choose your VCF file to load on our local machine.
 
-Almost nothing will be changed and in order to see the actual mutations we need to select a certain chromosome and then zoom in (upper left corner) till we can see actual mutations along with gene annotation.
+Almost nothing will be changed and in order to see the actual mutations we need to select a certain chromosome and than zoom in (upper left corner) till we can see actual mutations along with gene annotation.
 
 ![Uploading VCF file](img/igv_2.png)
 
