@@ -99,6 +99,10 @@ In our case of CSQ block we can see every mutation annotated with possible conse
 - Moderate Impact: Missense variant, Inframe insertion, Protein altering etc
 - Low Impact: Synonymous variant, Start retained_variant etc
 
+# other fields
+- Mapping Quality (MAPQ attrivute): the quality of alignment (do not confuse it with QUAL filed before which is a quality of variant calling itself!). the value of 60 considerd a good confidence, MAPQ = 20 Suggests lower confidence, indicating the reads may be misaligned.
+- MLEAC: Maximum Likelihood Expectation of the Allele Count, usually provided by GATK and used in population stadies when you simultaneouslu call many individuals. MLEAC provides the most likely number of alternate alleles observed across all individuals in the sample. MLEC=2 means we have exacly two alleles. MLEAC=10 means that the maximum likelihood estimate of the alternate allele count is 10 across all individuals in the population.
+
 
 ## Conclusion
 Genome browser is usually a first tool you can use to see your variants. Nest task might be  Analyzing these variants (variant interpretation) and it is not an obvios task. 
