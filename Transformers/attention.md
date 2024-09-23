@@ -48,13 +48,13 @@ c = [2  0 2]
 
 It is obvios that according to dot product similarity the A vector is highly similar to itself
 
-dot(a,a) = 1*1 +0*0 + 0*0 = 1
+dot(a,a) = 1 * 1 + 0 * 0 + 0 * 0 = 1
 
 A is more similar to C then to B becuase A and B have a similar first feature 
 
-dot(a,b) = 1*0 + 0*0 + 0*2 = 0
+dot(a,b) = 1 * 0 + 0 * 0 + 0 * 2 = 0
 
-dot(a,c) = 1*2 + 0*0 + 0*2 = 2
+dot(a,c) = 1 * 2 + 0 * 0 + 0 * 2 = 2
 
 A nice way to calculase all pairwise similarities at once for all words is to multiply the whole embedding matrix by itself. 
 
