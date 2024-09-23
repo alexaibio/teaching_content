@@ -6,6 +6,7 @@ It is one of the most popular offline genome browsers for exploring Next Generat
 
 However, since browsers like IGV are typically designed for expert users, they often lack user-friendly interfaces, making it difficult to get started. This post aims to bridge that gap by providing an easy-to-follow guide for using the IGV browser and tips on how to interpret mutation annotations.
 
+![Genome Browsers](img/main_IGV.jpg)
 
 
 ## Installation
