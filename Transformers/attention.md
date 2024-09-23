@@ -143,6 +143,9 @@ So, after our self attentionrecalculation we will have slightly different embedd
 
 The embeddings are adjusted according to how much attention they give to each other. For example, the word "is" now has a stronger association with the "language" embedding (since the value for that dimension has been amplified).
 
+NOTE/Explanation
+In self-attention, when we calculate new embeddings by performing a weighted sum over values, we're essentially combining the meaning of different words based on the relationships between them that have been determined by the attention mechanism.
+
 
 ## What next
 Lets understand how embeddings and self-attention adjustments work across sentences, especially in the context of training a Transformer.
@@ -150,9 +153,9 @@ Lets understand how embeddings and self-attention adjustments work across senten
 
 It is important to understand that when you apply self-attention and adjust the embeddings for a particular sentence, this adjustment is only temporary for that specific forward pass
 
-Input Embeddings: At the start, every word (or token) in your sentence is converted into a vector representation (embedding). These embeddings are static; they are a fixed part of the model's learned parameters after training. For example, in a trained model, the embedding for "Apple" or "phone" is constant across all sentences.
+- Input Embeddings: At the start, every word (or token) in your sentence is converted into a vector representation (embedding). These embeddings are static; they are a fixed part of the model's learned parameters after training. For example, in a trained model, the embedding for "Apple" or "phone" is constant across all sentences.
 
-Self-Attention Mechanism: During the forward pass of a Transformer, the self-attention mechanism dynamically adjusts these embeddings based on the relationships (similarity or attention) between words in the sentence only during that pass.
+- Self-Attention Mechanism: During the forward pass of a Transformer, the self-attention mechanism dynamically adjusts these embeddings based on the relationships (similarity or attention) between words in the sentence only during that pass.
 
 So, the adjustments you make using self-attention (the values you compute after multiplying the softmax scores with the value matrix 𝑉 are specific to that sentence and do not carry over to the next sentence.
 
