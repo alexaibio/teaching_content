@@ -132,7 +132,9 @@ For Apple we have initial embeddings: [5 2 0]
 We will calculate new adjusted embeddings as follows.
 
 For fruit feature:    dot([1 0 0 0 0], [5 0 0 2 0]) = 0
+
 For computer feature: dot([1 0 0 0 0], [2 0 5 0 0]) = 2
+
 for language feature: dot([1 0 0 0 0], [0 5 0 0 6]) = 0
 
 and so on.
