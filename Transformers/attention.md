@@ -110,17 +110,17 @@ The resulting matrix does not have to be symmetric. In fact, it often won’t be
 
 
 
-## Generate embeddings adjusted to a phrase
+## Generate new embeddings adjusted to a phrase's meaning
 So, what we have till now
 - a sentence
 - initial embeddings for each word in this sentence
-- calculated similarity matrix for all words in the sentence
+- calculated similarity matrix for all words in the sentence (normalized and softmaxed)
 
-What we are going to do next is to adjust our initial embedding such that they reflect somehow the fact that they are in the same phrase.
+What we are going to do next is to adjust our initial embedding such that they reflect somehow the fact that all those words are in the same phrase.
 
-So that, we multiply our pairvise similarity matrix on our initial embeddings matrix (now we call it V, values, but again it is essentially the same input embedding table).
+So that, we multiply our pairwise similarity matrix on our initial embeddings matrix (now we call it V - values - but again it is essentially the same input embedding table).
 
-As a result we have and adjusted embedding table and can use them futher for any task, like classification or futher down in our transformer architecture.
+As a result we have and adjusted embedding table and can use them futher in our transformer architecture.
 
 Let's broke it down to numbers.
 
@@ -139,9 +139,9 @@ for language feature: dot([1 0 0 0 0], [0 5 0 0 6]) = 0
 
 and so on.
 
-In our case the values of features did not change much dur to hature of our initial embeddings, but in reality the new adjusted embeddings will reflect the sentence context better then our initial general embeddings.
+In our case the values of features did not change much due to poorinitial embeddings selection, but in reality the new adjusted embeddings will reflect the sentence context better then our initial general embeddings.
 
-So, after our self attentionrecalculation we will have slightly different embeddings
+So, after our self attention recalculation we will have slightly different embeddings
 
 The embeddings are adjusted according to how much attention they give to each other. For example, the word "is" now has a stronger association with the "language" embedding (since the value for that dimension has been amplified).
 
@@ -176,10 +176,13 @@ Once the model is trained:
 - For each new sentence, the self-attention mechanism dynamically adjusts the embeddings temporarily based on the sentence structure, computes the output (such as predicted next word, classification, etc.), and then moves on to the next sentence.
 
 
+## Multi-Head Attention
+
+
 
 
 ## ----- TBD ------> Generate many different embeddings based on initial one
-As I previously mentioned the embedding for each word might might vary depending on a sentence. But adjusting embeddings via training is very costly process. We might use some tricks to generate such new slightly modified embeddings via linear transformations such that it accounts for the sentence context somehow.
+As I previously mentioned the embedding for each word might vary depending on a sentence. But adjusting embeddings via training is very costly process. We might use some tricks to generate such new slightly modified embeddings via linear transformations such that it accounts for the sentence context somehow.
 
 Namely we can use similarity information between all words (calculated above) to make these new embeddings somehow meaningful.
 
@@ -195,7 +198,9 @@ new Apple embedding =
   - is[0 0 5] * sim(Apple, is) + 
   - phone[0 5 0] * sim(Apple, phone) + 
   - The[0 0 6] * sim(Apple, the) 
+  
 =
+
   - Apple[5 2 0] * 1 +
   - is[0 0 5] * 0 +
   - phone[0 5 0] * 0.0002 + 
