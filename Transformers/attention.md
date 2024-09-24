@@ -116,9 +116,16 @@ So, what we have till now
 - initial embeddings for each word in this sentence
 - calculated similarity matrix for all words in the sentence (normalized and softmaxed)
 
-What we are going to do next is to adjust our initial embedding such that they reflect somehow the fact that all those words are in the same phrase.
+Now we are going to adjust our initial embedding such that they reflect somehow the fact that all those words are in the same phrase.
 
-So that, we multiply our pairwise similarity matrix on our initial embeddings matrix (now we call it V - values - but again it is essentially the same input embedding table).
+Let say we wont to adjust how much Fruits in Apple.
+
+Originally it was 5, but now we add to it how "fruit" other words in this sentence weighted by their similarity with apple:
+
+For fruit feature:    dot([1 0 0 0 0], [5 0 0 2 0]) = 5
+
+
+We can do it for the entire matrix, we multiply our pairwise similarity matrix on our initial embeddings matrix (now we call it V - values - but again it is essentially the same input embedding table).
 
 As a result we have and adjusted embedding table and can use them futher in our transformer architecture.
 
@@ -131,7 +138,6 @@ For Apple we have initial embeddings: [5 2 0]
 
 We will calculate new adjusted embeddings as follows.
 
-For fruit feature:    dot([1 0 0 0 0], [5 0 0 2 0]) = 0
 
 For computer feature: dot([1 0 0 0 0], [2 0 5 0 0]) = 2
 
