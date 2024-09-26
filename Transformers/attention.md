@@ -139,6 +139,8 @@ It essentially means that???
 ### For entire matrices: multiply by V
 We can do this operation for the entire matrix at once. For that we multiply our pairwise similarity matrix on our initial embeddings matrix (now we call it V - values - but again it is essentially the same input embedding table).
 
+![Full attention formula](img/attention.png)
+
 As a result we have and adjusted embedding table and can use them futher in our transformer architecture.
 
 Let's broke it down to numbers.
@@ -162,11 +164,9 @@ In our case the values of features did not change due to poor initial embeddings
 
 The embeddings are adjusted according to how much attention they give to each other. For example, the word "is" now has a stronger association with the "language" embedding (since the value for that dimension has been amplified).
 
-NOTE/Explanation
-In self-attention, when we calculate new embeddings by performing a weighted sum over values, we're essentially combining the meaning of different words based on the relationships between them that have been determined by the attention mechanism.
 
 
-## What next
+## Relation to a transformer training and inference
 Lets understand how embeddings and self-attention adjustments work across sentences, especially in the context of training a Transformer.
 
 It is important to understand that when you apply self-attention and adjust the embeddings for a particular sentence, this adjustment is only temporary for that specific forward pass
@@ -193,12 +193,14 @@ Once the model is trained:
 
 
 ## Multi-Head Attention
-
+TBD
 
 
 
 ## ----- TBD ------> Generate many different embeddings based on initial one
-As I previously mentioned the embedding for each word might vary depending on a sentence. But adjusting embeddings via training is very costly process. We might use some tricks to generate such new slightly modified embeddings via linear transformations such that it accounts for the sentence context somehow.
+Apparently the actual meaning of the words (aka embedding) depending on a sentence (apple as a fruit and apple as a phone). 
+
+But adjusting embeddings via training is very costly process. We might use some tricks and substitute adjusting the embeddings with training by generation new slightly modified embeddings via linear transformations such that it accounts for the sentence context somehow.
 
 Namely we can use similarity information between all words (calculated above) to make these new embeddings somehow meaningful.
 
@@ -225,7 +227,7 @@ new Apple embedding =
 
 That operation will generate a new apple embedding which will encorporate information about all word in this sentence, saying for example that Apple is used in the same sentence with garden and phone.
 
-![Full attention formula](img/attention.png)
+
 
 
 
