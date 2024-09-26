@@ -36,7 +36,7 @@ So we have an embedding matrix like this
 ![Initial embeddings table](img/emb1.png)
 
 
-## One Sentence: Pairwise word similarities, Key, Query
+## K, Q: Pairwise word similarities for one phrase
 the next step will be to understand dependencies between every word in our sentence. 
 
 Since we have 5 words in our current sentence what we can do is to calculate pairwise similarities between all words.
@@ -73,7 +73,7 @@ or vizualize it as follows to have a pairwise similrity matrx among all words in
 ![Pairwise similarity matrix](img/pairwise.png)
 
 
-## Technical tricks: scaled and softmax normalized similarity
+### Technical tricks: scaled and softmax normalized similarity
 
 The dot-product similary has one drawback, it havily influenced by absolute values of features and by length of embedding vectors to compare. 
 To partially aleviate this issue a scaled dot-product is used.
@@ -110,7 +110,7 @@ The resulting matrix does not have to be symmetric. In fact, it often won’t be
 
 
 
-## Generate new embeddings adjusted to a phrase's meaning
+## V: Generate new embeddings adjusted to a phrase's meaning
 So, what we have till now
 - a sentence
 - initial embeddings for each word in this sentence
@@ -118,13 +118,21 @@ So, what we have till now
 
 Now we are going to adjust our initial embedding such that they reflect somehow the fact that all those words are in the same phrase.
 
-Let say we wont to adjust how much Fruits in Apple.
+Let say we wont to adjust our embeddings to the fact we have both Fruits in Apple in one phrase.
 
-Originally it was 5, but now we add to it how "fruit" other words in this sentence weighted by their similarity with apple:
+Lets recall our original embeddings for Apple : [ 5 (fruits), 2 (computers), 0 (language)]
+
+
+So initially Apple has a s trong emphasise to fruits (5).
+
+To adjust these "fruit" weight to our phrase we calculate new fruit feature as follows:
+- get how "fruit" were all words initially [5 0 0 2 0]
+- weight them by "attention" of Apple to each other word in a sentence - [1 0 0 0 0]
 
 For fruit feature:    dot([1 0 0 0 0], [5 0 0 2 0]) = 5
 
 
+### For entire matrices: multiply by V
 We can do it for the entire matrix, we multiply our pairwise similarity matrix on our initial embeddings matrix (now we call it V - values - but again it is essentially the same input embedding table).
 
 As a result we have and adjusted embedding table and can use them futher in our transformer architecture.
