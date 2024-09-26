@@ -111,29 +111,33 @@ The resulting matrix does not have to be symmetric. In fact, it often won’t be
 
 
 ## V: Generate new embeddings adjusted to a phrase's meaning
-So, what we have till now
+So, what we have up to now
 - a sentence
 - initial embeddings for each word in this sentence
-- calculated similarity matrix for all words in the sentence (normalized and softmaxed)
+- similarity matrix for all words in the sentence (normalized and softmaxed). We can call it "attention" matrix because a first row for example tells us how much attention (similarity) an Apple has to all other words in the phrase.
 
 Now we are going to adjust our initial embedding such that they reflect somehow the fact that all those words are in the same phrase.
 
 Let say we wont to adjust our embeddings to the fact we have both Fruits in Apple in one phrase.
 
-Lets recall our original embeddings for Apple : [ 5 (fruits), 2 (computers), 0 (language)]
+Lets recall our original embeddings for Apple : 
+
+[ 5 (fruits), 2 (computers), 0 (language)]
 
 
 So initially Apple has a s trong emphasise to fruits (5).
 
-To adjust these "fruit" weight to our phrase we calculate new fruit feature as follows:
+To adjust these "fruitish" weight to our phrase we calculate new fruit feature as follows:
 - get how "fruit" were all words initially [5 0 0 2 0]
 - weight them by "attention" of Apple to each other word in a sentence - [1 0 0 0 0]
 
 For fruit feature:    dot([1 0 0 0 0], [5 0 0 2 0]) = 5
 
+It essentially means that???
+
 
 ### For entire matrices: multiply by V
-We can do it for the entire matrix, we multiply our pairwise similarity matrix on our initial embeddings matrix (now we call it V - values - but again it is essentially the same input embedding table).
+We can do this operation for the entire matrix at once. For that we multiply our pairwise similarity matrix on our initial embeddings matrix (now we call it V - values - but again it is essentially the same input embedding table).
 
 As a result we have and adjusted embedding table and can use them futher in our transformer architecture.
 
@@ -146,6 +150,7 @@ For Apple we have initial embeddings: [5 2 0]
 
 We will calculate new adjusted embeddings as follows.
 
+For fruit feature:    dot([1 0 0 0 0], [5 0 0 2 0]) = 5
 
 For computer feature: dot([1 0 0 0 0], [2 0 5 0 0]) = 2
 
@@ -153,9 +158,7 @@ for language feature: dot([1 0 0 0 0], [0 5 0 0 6]) = 0
 
 and so on.
 
-In our case the values of features did not change much due to poorinitial embeddings selection, but in reality the new adjusted embeddings will reflect the sentence context better then our initial general embeddings.
-
-So, after our self attention recalculation we will have slightly different embeddings
+In our case the values of features did not change due to poor initial embeddings choice, but in reality the new adjusted embeddings will slightly change and  reflect the sentence context better then our initial general embeddings.
 
 The embeddings are adjusted according to how much attention they give to each other. For example, the word "is" now has a stronger association with the "language" embedding (since the value for that dimension has been amplified).
 
@@ -166,7 +169,6 @@ In self-attention, when we calculate new embeddings by performing a weighted sum
 ## What next
 Lets understand how embeddings and self-attention adjustments work across sentences, especially in the context of training a Transformer.
 
-
 It is important to understand that when you apply self-attention and adjust the embeddings for a particular sentence, this adjustment is only temporary for that specific forward pass
 
 - Input Embeddings: At the start, every word (or token) in your sentence is converted into a vector representation (embedding). These embeddings are static; they are a fixed part of the model's learned parameters after training. For example, in a trained model, the embedding for "Apple" or "phone" is constant across all sentences.
@@ -176,14 +178,14 @@ It is important to understand that when you apply self-attention and adjust the 
 So, the adjustments you make using self-attention (the values you compute after multiplying the softmax scores with the value matrix 𝑉 are specific to that sentence and do not carry over to the next sentence.
 
 
-## Attention and Transformer training
+### Attention and Transformer training
 - Embeddings are learned: The embeddings themselves are learned during training. Each word or token in the vocabulary has an associated embedding vector that is updated by backpropagation. The idea is that words or tokens with similar meanings (based on the training data) will have embeddings that are close to each other in the vector space.
 
 - Self-Attention Mechanism: The self-attention mechanism learns the best way to weight relationships between words in a sentence. During the forward pass, the attention mechanism computes pairwise relationships between words and adjusts their embeddings based on these relationships.
 
 - Forgetting Adjustments: Once the forward pass is done and the loss is computed, the specific adjustments made for that sentence during self-attention are forgotten. The only thing that persists are the learned parameters (such as embeddings and attention weights) which get updated after backpropagation.
 
-## Attention and inference
+### Attention and inference
 Once the model is trained:
 
 - The learned embeddings (which have been optimized during training) are static and are not modified during inference.
