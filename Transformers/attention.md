@@ -1,12 +1,13 @@
 # Self-Attention mechanism for Transformers explained.
 
-## Embeddings
+## Fixed Embeddings
 Embedding is a widely known technique used to compress high-dimensional vectors of features into smaller, fixed-size vectors while preserving the relative distances between the original vectors.
 
 For exmaple, being in NLP domain we can imagine we need to compare how one piece of text is simiar to another. 
 The common technic to represent a text in machine learning is Bag Of Words (BofW). The idea is to simply count words in the text and then represent this text as one-dimensional vector of lenths equal to vocabulary (list of all possible words) and adding a number of words to an appropriate position in this vector.
 
 It is easy to imagine that the lenth of such vector might easily exceed 10000 or so (since potentially might be 10000 english words), that makes operation on this vector not so convinient, espesially taking into account that the vector might be extreemly sparse. On top of that each texts might have different number of words, so vector might potentially have different size which will make hard to calculate the distance.
+
 One of manipulation we might do with those vectors is a distance (similarity) calculation and embeddings have a nice property of similar by meaning words are close to each other, it is actually a third important property of embedding vectors
 
 So, it would make sence make them fixed in size and reduce that size to some asseptable valuelest say 512 or 256. 
@@ -19,15 +20,42 @@ There are many technics to create embeddings, for example
 - GloVe
 - etc
 
-But they all are kind of "fixed" embeddings, so once we have text and calculated embedding for every single word in a text they are fixed, we are not changing it. 
 
-But in reality the meaning of the word might be sligtly changing depending on context. For example the meaning of apple in context of fruits is different from apple in context of mobile phone vendors.
+## Static vs context aware Embeddings
 
-Attention is exactly mechanism to solve this problem of variation of embedding depending on context.
+But they all are kind of "fixed" embeddings, for example in phrases
+- An Apple is a fruit
+- I bought a new Apply phone
+The word Apple will be represented by have absolutelly the same embedding vector, for example Apple[5 0 0 2 0].
+
+so once we have text and calculated embedding for every single word in a text they are fixed, we are not changing it. 
+
+But as we can see in an example above the meaning of the word might be different depending on the phrase context. 
+
+Self-Attention is exactly mechanism to correct embeddings depending on a particular phrase, i.e to account to context of where the word is used. As a result we wil have a better embedding, and thus be better at the downstream tasks.
+
+It is actually very similar to how we as human use words in our natural language, we have many word which have the same spelling but completelly different meaning.
 
 Lets furure out how it works step by step
 
-## Input word embeddings
+
+## What is achived by Attention
+
+
+![What attention does](img/attention_intro.png)
+
+мы заменяем исходные эмбеддинги суммой всех эмбеддингов с коэффиционтом attention - например для Apple основную часть вектора эмбеддинга внесет сам Apple - но к нему будет прибавлены все остальные вектора умноженные на коэффицинт
+
+этой операцией мы сместим вектор Apple ближе к тем словам которые имеют с ним большую связь - кластерп понятий
+
+- initial embeddings are "weighted" or "adjusted" to a mening of a particular phrase
+- weightin is done for each word by computing similarity with other words
+- important: No parameters! it is done not by training but by linear combilations os an existing embeddings (aka martix multipliction) which is much faster then by training
+- for multi head attention a parrallel processing
+- 
+
+
+## Example: Input word embeddings
 For example we have a sentence of 5 words.
 Lets assume we already calculated embeddings for all these five words. They might be calculated by some methods above or even have a random initial values and supposed to be trained later. But out assumptions that those embeddings already reflect some relationships between these words, for example the similarity between apple and garden is higher then between apple and phone.
 Lets imagine now that  the length of these embeddings is 3. 
@@ -36,10 +64,12 @@ So we have an embedding matrix like this
 ![Initial embeddings table](img/emb1.png)
 
 
-## K, Q: Pairwise word similarities for one phrase
-the next step will be to understand dependencies between every word in our sentence. 
+## K, Q: Calculate attention weights (Pairwise word similarities) for one phrase
+The next step will be to understand dependencies between every word in our sentence. 
 
-Since we have 5 words in our current sentence what we can do is to calculate pairwise similarities between all words.
+For example having a word Apple, what other word in our sentence influence the meaning of this word? Well, it might be Phone or Fruit, so interpretiong the meaning of Apple we have to take a spesial attention to one of those words and much less attention to other words like THE or IS.
+
+We can do it with calculating similariry. Since we have 5 words in our current sentence what we can do is to calculate pairwise similarities between all words.
 
 The simpliest way to define a similarity is a dot-product. For example if we have three vectors,
 
@@ -110,7 +140,7 @@ The resulting matrix does not have to be symmetric. In fact, it often won’t be
 
 
 
-## V: Generate new embeddings adjusted to a phrase's meaning
+## V: Applying Attention and generate new embeddings adjusted to a phrase's meaning
 So, what we have up to now
 - a sentence
 - initial embeddings for each word in this sentence
@@ -165,6 +195,15 @@ In our case the values of features did not change due to poor initial embeddings
 The embeddings are adjusted according to how much attention they give to each other. For example, the word "is" now has a stronger association with the "language" embedding (since the value for that dimension has been amplified).
 
 
+## Learning self-attention
+TBD: we are not changing initial embeddings, we attach to  K Q V weights and learn them, so 
+
+Q = initial embeddings x Learnable Weights Q
+
+K = initial embeddings x Learnable Weights K
+
+V = initial embeddings x Learnable Weights V
+
 
 ## Relation to a transformer training and inference
 Lets understand how embeddings and self-attention adjustments work across sentences, especially in the context of training a Transformer.
@@ -193,8 +232,10 @@ Once the model is trained:
 
 
 ## Multi-Head Attention
-TBD
+разница между self-attention and multihead attention в том что
 
+- мы используем много матриц K, Q and V а потом concatenate результаты от каждого head - то есть вытягиваем в линию - используем всех
+- но потом используем Linear layer чтобы сжать размерность в исходную
 
 
 ## ----- TBD ------> Generate many different embeddings based on initial one
