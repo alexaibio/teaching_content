@@ -23,7 +23,9 @@ There are many technics to create embeddings, for example
 
 ## Static vs context aware Embeddings
 
-But they all are kind of "fixed" embeddings, for example in phrases
+The embeddings descriobed above have a major drawback, they do not account for phrase comtext.
+
+For example in phrases
 - An Apple is a fruit
 - I bought a new Apply phone
 The word Apple will be represented by have absolutelly the same embedding vector, for example Apple[5 0 0 2 0].
@@ -32,27 +34,29 @@ so once we have text and calculated embedding for every single word in a text th
 
 But as we can see in an example above the meaning of the word might be different depending on the phrase context. 
 
+It would be nice to have such an algorithm which will correct word embeddings vectors, adjusting it to the context, i.e. to a phrase that word is used. 
+
+
+
+
+## Self - Attention
 Self-Attention is exactly mechanism to correct embeddings depending on a particular phrase, i.e to account to context of where the word is used. As a result we wil have a better embedding, and thus be better at the downstream tasks.
 
 It is actually very similar to how we as human use words in our natural language, we have many word which have the same spelling but completelly different meaning.
 
-Lets furure out how it works step by step
-
-
-## What is achived by Attention
-
+What self attention does is it substitutes an initial embedding vector to a sum of all vectors withed by a weight coeffisient, like that 
 
 ![What attention does](img/attention_intro.png)
 
-мы заменяем исходные эмбеддинги суммой всех эмбеддингов с коэффиционтом attention - например для Apple основную часть вектора эмбеддинга внесет сам Apple - но к нему будет прибавлены все остальные вектора умноженные на коэффицинт
+For example if we have phrase "Apple is a fruit" the new adjusted embedding for an Apple will be
 
-этой операцией мы сместим вектор Apple ближе к тем словам которые имеют с ним большую связь - кластерп понятий
+Apple = weight * Apple + weight * is + weight * fruit
 
-- initial embeddings are "weighted" or "adjusted" to a mening of a particular phrase
-- weightin is done for each word by computing similarity with other words
-- important: No parameters! it is done not by training but by linear combilations os an existing embeddings (aka martix multipliction) which is much faster then by training
-- for multi head attention a parrallel processing
-- 
+of cource the weight coeffisions will be calculated in such a way that Apple initial embeddings will still play a crucial role, but it still be adjusted to be close in space to a word which is important to understanding , in our case to fruit
+
+
+It is impoortant to understant the key advantages of self-attention, the fact that that embedding correction is dont not by expensive training but by simple matrix multiplication. So, no parameters for traning! That is important
+
 
 
 ## Example: Input word embeddings
