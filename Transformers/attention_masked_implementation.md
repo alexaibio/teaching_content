@@ -15,7 +15,7 @@ Here we show how to do it in computationally efficient way.
 - **do masking**
 - **take final softmax**
 
-[Masking future token](img/masking.png)
+![Masking future token](img/masking.png)
 
 
 
