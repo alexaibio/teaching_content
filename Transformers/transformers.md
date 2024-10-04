@@ -1,3 +1,17 @@
+# Transformer architecture
+
+## Multi-Head Attention
+разница между self-attention and multihead attention в том что
+
+- мы используем много матриц K, Q and V а потом concatenate результаты от каждого head - то есть вытягиваем в линию - используем всех
+- но потом используем Linear layer чтобы сжать размерность в исходную
+![Multi head attention](img/multi_head.png)
+
+
+
+## Attention is all you need Transformer architecture
+
+![Attention is all you need architecture](img/all_you_need.png)
 
 
 
@@ -27,10 +41,4 @@ Once the model is trained:
 - The learned embeddings (which have been optimized during training) are static and are not modified during inference.
 - For each new sentence, the self-attention mechanism dynamically adjusts the embeddings temporarily based on the sentence structure, computes the output (such as predicted next word, classification, etc.), and then moves on to the next sentence.
 
-
-## Multi-Head Attention
-разница между self-attention and multihead attention в том что
-
-- мы используем много матриц K, Q and V а потом concatenate результаты от каждого head - то есть вытягиваем в линию - используем всех
-- но потом используем Linear layer чтобы сжать размерность в исходную
 
