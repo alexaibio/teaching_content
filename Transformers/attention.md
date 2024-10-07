@@ -221,6 +221,9 @@ K = initial embeddings x Learnable Weights K
 
 V = initial embeddings x Learnable Weights V
 
+![Linear layer: from input embeddings to Q, K, V](img/linear_x_to_kqv.png)
+
+
 
 # Conclusion
 As a result of this operation we are able to adjust each word embeddings in a phrase to that particulare phrase meaning.
