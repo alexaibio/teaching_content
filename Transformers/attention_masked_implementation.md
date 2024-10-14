@@ -23,3 +23,9 @@ Here we show how to do it in computationally efficient way.
 
 
 
+## tricks: FlashAttention
+Standard attention requires storing large intermediate matrices (like the attention scores and softmax values), which consume a lot of memory, especially for long sequences.
+
+FlashAttention uses a memory-efficient algorithm to avoid storing these intermediate matrices, significantly reducing memory overhead.
+
+

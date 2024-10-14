@@ -3,25 +3,24 @@
 ## Fixed Embeddings
 Embedding is a widely known technique used to compress high-dimensional vectors of features into smaller, fixed-size vectors while preserving the relative distances between the original vectors.
 
-We can iilustrate it by a short example from NLP domain. Lets imagine we need to compare how two pieces of text are simiar to each other. 
-The common technic to represent a text in NLP is Bag Of Words (BofW). The idea behind that is to simply to count words in the text and then represent this text as one-dimensional vector which consists of vocabulary (list of all possible words) and approprita e count of particular words.
+I can iilustrate this concept by a short example from NLP domain. Lets imagine we need to compare two texts and say how simiar they are.
 
-It is easy to imagine that the lenth of such vector might easily exceed 10000 or so (since potentially might be 10000 english words), that makes operation on this vector not convinient, espesially taking into account that the vector might be extreemly sparse. On top of that each texts might have different number of words, so vector might potentially have different size which will make hard to calculate the distance.
+Before to that we need to convert the text into a vector of numbers. The common technic to represent a text as numbers in NLP is Bag Of Words (BofW). The idea behind that is to simply to count words in the text and then represent this text as one-dimensional vector which consists of vocabulary (list of all possible words) and approprite number close to each vocabulary position (count of particular word).
 
-The solution would be to 
-- make all those text vectors be a same size
-- compress them into a mach smaller size like 256 or 512
+It is easy to imagine that the lenth of such vector might easily exceed 10000 or so (since potentially might be 10000+ english words), that makes operation on this vector not convinient, espesially taking into account that the vector might be extreemly sparse. On top of that each texts might have different number of words, so vector might potentially have different size which will make hard to calculate the distance.
 
-That operation of representing long vector with shorter one is called embedding and result in vectors of fixed size.
+The solution is to compress those vectors as follows 
+- they need to be of a same size
+- compress them into a much smaller size like 256 or 512
+- we need to preserve the meaning of text, i.e. in term of similarotyes, all similarities between texts must be preserved
 
-There are many technics to create embeddings, for example
+That operation of representing long vector with shorter one preserving the distances is called embedding and result in vectors of fixed size.
+
+Multiple technics exists to create embeddings, for example
 - Word2Vec
 - Matrix Factorization
 - GloVe
 - etc
-
-One of manipulation we might do with those vectors is a distance (similarity) calculation and embeddings have a nice property of similar by meaning words are close to each other, it is actually a third important property of embedding vectors
-
 
 
 
@@ -29,18 +28,19 @@ One of manipulation we might do with those vectors is a distance (similarity) ca
 
 ## Static vs context aware Embeddings
 
-The embeddings technics usually applied not to the entire text but to each word separatelly, so in a  phrase each word substituted with its embeddings.
+In reality embeddings are calculated not to the whole phrase but to each separate word in a phrase, so in a  phrase each word is substituted with its embeddings for futher manipulations.
 
-In such case the pre-calculated embeddings have a major drawback, they do not account for phrase comtext.
+Thus our pre-calculated embeddings have a major drawback, they do not account for phrase context, they are always the same.
 
 For example in phrases
 - An Apple is a fruit
 - I bought a new Apply phone
+
 The word Apple will be represented by have absolutelly the same embedding vector, for example Apple[5 0 0 2 0].
 
 so once we have text and calculated embedding for every single word in a text they are fixed, we are not changing it. 
 
-But as we can see in an example above the meaning of the word might be different depending on the phrase context. 
+But as we can see in an example above the meaning of the word (Apple) might be different depending on the phrase context. 
 
 It would be nice to have such an algorithm which will temporarily change word embeddings vectors, adjusting it to the context, i.e. to a phrase that word is used. 
 
@@ -48,11 +48,16 @@ It would be nice to have such an algorithm which will temporarily change word em
 
 
 ## Self - Attention
-Self-Attention is exactly mechanism to correct embeddings depending on a particular phrase, i.e to account to context of where the word is used. As a result we wil have a better embedding, and thus be better at the downstream tasks.
+Self-Attention is exactly mechanism to correct embeddings depending on a particular phrase context, i.e to account to context of where the word is used. As a result we wil have a embedding better reflecting the real meaning (apple phone vs apple fruit), and thus be better at the downstream tasks.
 
-It is actually very similar to a way how we as human understand words in our natural language, we have many word which have the same spelling but completelly different meaning.
+It is actually very similar to a way how we as human understand words in natural language, we have many word which have the same spelling but completelly different meaning and easily understand them right based on context .
 
-What self attention does is it substitutes each word's initial embedding vector in a given phrase to a sum of all words embeddings weithed by a special coeffisient (attention), like that 
+We can schematically depict self-attention as follows.
+Basically, we substitute our input embeddings X with adjusted embeddings Y.
+New embeddings are derived from initial by summinng them with all the other embeddings but weithed by an "attention" coefficient. 
+
+Attention is basically nothing more then a similarity between word in question and every other word.
+
 
 ![What attention does](img/attention_intro.png)
 
