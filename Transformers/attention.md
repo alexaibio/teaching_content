@@ -53,43 +53,47 @@ Self-Attention is exactly mechanism to correct embeddings depending on a particu
 It is actually very similar to a way how we as human understand words in natural language, we have many word which have the same spelling but completelly different meaning and easily understand them right based on context .
 
 We can schematically depict self-attention as follows.
-Basically, we substitute our input embeddings X with adjusted embeddings Y.
-New embeddings are derived from initial by summinng them with all the other embeddings but weithed by an "attention" coefficient. 
-
-Attention is basically nothing more then a similarity between word in question and every other word.
 
 
 ![What attention does](img/attention_intro.png)
 
-For example if we have phrase "Apple is a fruit" the new adjusted embedding for an Apple will be
+Basically, we substitute our input embeddings X with adjusted embeddings Y.
+New embeddings are derived from initial by summinng them with all the other embeddings but weithed by an "attention" coefficient. 
+
+Attention weigths are basically nothing more then a similarity between word in question and every other word ina given phrase.
+
+For example for a phrase "Apple is a fruit" the new adjusted embedding for an "Apple" will be
 
 Apple = weight * Apple + weight * is + weight * fruit
 
-of course the weight coeffisianrs will be calculated in such a way that Apple initial embeddings will still play a crucial role, but it still be adjusted to be close in space to a word which is important to understanding , in our case to fruit
-
-It is impoortant to understant the key advantages of self-attention, which is the fact that that embedding correction is do not achived by expensive training but by simple matrix multiplication. So, no parameters for traning! That is important
+Since the similarity od Apple with itself will always be close to one, the initial embedding will still play a major role, but since similarity between Apple and fruite will also be quite high, we will shift apple embedding in our space a bit close to a fruit, so giving apple a bit more fruitness in this phrase only. In other phrases Apple might be shifted to phone for example or stay the same is there are no words significantly influencing Apple meaning.
 
 
+It is also impoortant to understand that one more advantages of self-attention is the fact that that embedding correction is not achived by expensive training but by simple matrix multiplication. So, no parameters for traning! That weight are calculated by simple matrix multiplication, not based on training.
 
-## Example: Start from fixed Input word embeddings
+
+
+# Working Example
+## Start from fixed Input word embeddings
 Lets start from a sentence of 5 words.
 
-Lets assume we already have embeddings for all these five words. They might be calculated by some methods above or even have a random initial values and supposed to be trained later. But out assumptions is that those embeddings already reflect some relationships between words, for example the similarity between apple and garden is higher then between apple and phone.
+Lets assume we already have embeddings for all these five words. They might be calculated by some methods above or even have a random initial values and supposed to be learned later. 
 
-Now lets imagine that the length of these embeddings vectors is 3. 
-So we have an embedding matrix like this
+But our assumptions is that those embeddings already reflect some relationships between words, for example the similarity between apple and garden is higher then between apple and phone.
+
+Now lets decide that the length of these embeddings vectors is 3, it means we have an embedding matrix like this
 
 ![Initial embeddings table](img/emb1.png)
 
 
-## K, Q: Calculate attention weights (Pairwise word similarities) for one phrase
+## K, Q: Calculate attention weights as pairwise word similarities for one phrase
 The next step will be to understand dependencies between every word in our sentence. 
 
-For example having a word Apple, what other word in our sentence is most similar in meaning to it? Well, it might be Phone or Fruit, so understanding the meaning of Apple we have to take a special attention to one of those words and much less attention to other words like THE or IS.
+For example having a word Apple, what other word in our sentence is most similar in meaning to it? Well, it might be Phone or Fruit, so during understanding of Apple meaning we have to take a special attention to one of those words and less attention to other words like THE or IS, becasue they do not really chang the meaning of word APPLE.
 
-As we remember each word's embeddings are designed in a way the disctance between then reflects the acual meaning, so to understand dependencies we can calculate similariry. 
+As we remember each word's embeddings are learned in a way that the distance between them reflects the acual meaning, so calculation similariry between two words gives us an idea if two words are influencing each other, are situated in the same cluster of meanings. 
 
-Since we have 5 words in our current sentence what we can do is to calculate pairwise similarities between all words.
+So, lets calculate all pairwise similarities between all our words in a given phrase.
 
 The simpliest way to define a similarity is a dot-product. For example if we have three vectors,
 
@@ -100,7 +104,7 @@ b = [0 10 2]
 c = [2  0 2]
 
 
-It is obvios that according to dot product similarity the "a" vector is highly similar to itself
+According to dot product similarity the "a" vector is highly similar to itself, which completelly makes sence
 
 dot(a,a) = 1 * 1 + 0 * 0 + 0 * 0 = 1
 
@@ -122,7 +126,7 @@ So, we can nicely write this matrix multiplication as
 
 Q*K^T
 
-or vizualize it as follows to have a pairwise similrity matrx among all words in our sentence
+or vizualize it as follows to have a pairwise similrity matrix among all words in our sentence
 ![Pairwise similarity matrix](img/pairwise.png)
 
 
@@ -143,9 +147,9 @@ and much less between apple and phone
 
 Note that we divide it by square root of embedding dimensions length because embeddings are usually a pretty long vector, it might be 512 or 1024, so the dot product tends to be very large and we scale it down, simple make the absolute numbers smaller.
 
-Another trick we would like to do with embedding vectors is to take a softmax on them, which essensially make the whole vector sum up to 1, i.e we normalize it. 
+Another trick we would like to do with embedding vectors is to take a softmax on them, which essensially make the whole vector sum up to 1 (along only one dimension!), i.e we normalize it along this dimestion. 
 
-Also note that softmax is applied across each row, not column because
+Softmax is applied across each row, not column because
 - in the attention mechanism, each word (or token) in the input sequence is "attending" to all other words.
 - The row-wise softmax is done to normalize the attention weights for each query (which corresponds to each row) with respect to all the keys (corresponding to columns).
 - This results in the attention scores across the key dimension summing to 1 for each query. Effectively, it means "how much attention" each query pays to all the other tokens in the sequence.
