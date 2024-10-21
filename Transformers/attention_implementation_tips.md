@@ -1,3 +1,18 @@
+
+
+## Self-attention implementation
+IN real transformer architecture we do these adjustments not by changing the original matrices, but by attaching weigths to  K Q V matrices, so 
+
+Q = initial embeddings x Learnable Weights Q
+
+K = initial embeddings x Learnable Weights K
+
+V = initial embeddings x Learnable Weights V
+
+![Linear layer: from input embeddings to Q, K, V](img/linear_x_to_kqv.png)
+
+
+
 # Masked Attention implementation
 
 From the previous post we can remember that we adjust each word embedding to a phrase content by 

@@ -169,73 +169,50 @@ The resulting matrix does not have to be symmetric. In fact, it often won’t be
 
 ## V: Applying Attention and generate new embeddings adjusted to a phrase's meaning
 So, what we have up to now
-- a sentence
-- initial embeddings for each word in this sentence
-- similarity matrix for all words in the sentence (normalized and softmaxed). We can call it "attention" matrix because each row tells us how much attention (similarity) a word (Apple) has to all other words in the phrase.
+- a sentence of 5 words (apple is phone garden the)
+- initial 3 dimensional embeddings for each word in this sentence
+- similarity matrix for all words in the sentence (normalized and softmaxed). We can call this similarity as "attention"  because each row in matrix tells us how much attention (similarity) a word (Apple) has to all other words in the phrase.
 
-Now we are going to adjust embedding of each word such that they reflect the fact that all those words are in the same phrase. i.e. if we have Apple and Phone in one phrase we have to move default meaning  of Apple (in embedding space) from Fruits to Phones.
+Now we need to adjust embedding of each word such that they reflect the fact that all those words are in the same phrase. In other words if we have Apple and Phone in one phrase we have to move default meaning  of Apple (in embedding space) from Fruits to Phones.
+
+How we can do that?
+
+Let take a look on those two matrices. 
+
+![Calculation new embeddings, multiplying by V](img/V_new_embeddings.png)
+
+Initially, for Apple we have the following embeddings: 
+
+[ 5 (fruits), 2 (computers), 0 (language)]
+
+What we do next is the following
+- Initial "fruitness" of Apple is 5. 
+- see to which word in the sentence Apple is similar to. It is the first row of key/query matrix, [0.99997	0.00000	0.00002	0.00002	0.00000 ]
+- Apple is mostly similar to itself (0.9997) and also a bit to Phone and garden.
+- so we shift apple as a point in embedding space a bit close to Phone and Garden by having a dot product
+-  [0.99997	0.00000	0.00002	0.00002	0.00000 ]  dot  [5 0 0 2 0] = 4.99986
+
+Note that initial fruitness is still very close to 5, but we also added a small contribution of Garden fuitness and phone fruitness, so shifted a little bit Apple point to the clusters of garden and phones.
 
 As it was mentioned at the very begining, we do it by summing up the initial embedding of Apple with all other embedding in the phrase wighted by similarity. So if it happens that in our current phrase there is a word with hight similarity (fruit, phone) it will pull the embedding of an Appe to itself, making it closer to a cluster of fruits or phone. 
 
 
-Lets recall our original embeddings for Apple : 
-
-[ 5 (fruits), 2 (computers), 0 (language)]
-
-
-So initially Apple has a s strong emphasise to fruits (5).
-
-If we have a word "phone" in our phrase, we need to shift apple embedding a bit toword phones clusted in space.  
-
-
-So, to adjust this "fruitish" weight to our phrase we calculate new fruit feature as follows:
-- get how "fruit" were all words initially [5 0 0 2 0]
-- weight them by "attention" of Apple to each other word in a sentence - [1 0 0 0 0]
-
-For fruit feature:    dot([1 0 0 0 0], [5 0 0 2 0]) = 5
-
-TBD ???????????///
-
 
 ### Do that operation for an entire matrices: multiply Attention matrix by V
-We can do this operation for the entire matrix at once. For that we multiply our pairwise similarity matrix on our initial embeddings matrix (now we call it V - values - but again it is essentially the same input embedding table).
+We can do this operation for the entire matrices at once. For that we multiply our pairwise similarity matrix on our initial embeddings matrix (now we call it V - values - but again it is essentially the same input embedding table).
 
 ![Full attention formula](img/attention.png)
 
-As a result we have and adjusted embedding table and can use them futher in our transformer architecture.
+As a result we have and adjusted embedding table and can use them futher down in our transformer architecture.
 
-Let's broke it down to numbers.
+Let's broke it down all numbers.
 
 ![Adjusted Embeddings](img/adjusted_embed.png)
 
-For Apple we have initial embeddings: [5 2 0]
-
-
-We will calculate new adjusted embeddings as follows.
-
-For fruit feature:    dot([1 0 0 0 0], [5 0 0 2 0]) = 5
-
-For computer feature: dot([1 0 0 0 0], [2 0 5 0 0]) = 2
-
-for language feature: dot([1 0 0 0 0], [0 5 0 0 6]) = 0
-
-and so on.
-
-In our case the values of features did not change due to poor initial embeddings choice, but in reality the new adjusted embeddings will slightly change and  reflect the sentence context better then our initial general embeddings.
 
 The embeddings are adjusted according to how much attention they give to each other. For example, the word "is" now has a stronger association with the "language" embedding (since the value for that dimension has been amplified).
 
 
-## Self-attention implementation
-IN real transformer architecture we do these adjustments not by changing the original matrices, but by attaching weigths to  K Q V matrices, so 
-
-Q = initial embeddings x Learnable Weights Q
-
-K = initial embeddings x Learnable Weights K
-
-V = initial embeddings x Learnable Weights V
-
-![Linear layer: from input embeddings to Q, K, V](img/linear_x_to_kqv.png)
 
 
 
