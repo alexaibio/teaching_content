@@ -1,73 +1,77 @@
 # Self-Attention mechanism for Transformers explained.
 
 ## Fixed Embeddings
-Embedding is a widely known technique used to compress high-dimensional vectors of features into smaller, fixed-size vectors while preserving the relative distances between the original vectors.
 
-I can iilustrate this concept by a short example from NLP domain. Lets imagine we need to compare two texts and say how simiar they are.
+Embedding is a well-known technique used to compress high-dimensional feature vectors into smaller, fixed-size vectors while preserving the relative distances between the original vectors.
 
-Before to that we need to convert the text into a vector of numbers. The common technic to represent a text as numbers in NLP is Bag Of Words (BofW). The idea behind that is to simply to count words in the text and then represent this text as one-dimensional vector which consists of vocabulary (list of all possible words) and approprite number close to each vocabulary position (count of particular word).
+To illustrate this concept, let's consider an example from the NLP domain. Suppose we need to compare two texts and determine how similar they are.
 
-It is easy to imagine that the lenth of such vector might easily exceed 10000 or so (since potentially might be 10000+ english words), that makes operation on this vector not convinient, espesially taking into account that the vector might be extreemly sparse. On top of that each texts might have different number of words, so vector might potentially have different size which will make hard to calculate the distance.
+The first step is to convert the text into a numerical vector. A common technique for representing text as numbers in NLP is the Bag of Words (BoW) approach. The idea is simple: count the occurrences of each word in the text and represent the text as a one-dimensional vector, where each position corresponds to a word in the vocabulary (the list of all possible words), and the number in that position represents the word count in the given text.
 
-The solution is to compress those vectors as follows 
-- they need to be of a same size
-- compress them into a much smaller size like 256 or 512
-- we need to preserve the meaning of text, i.e. in term of similarotyes, all similarities between texts must be preserved
+It's easy to see that the length of such a vector can easily exceed 10,000, given that there are potentially over 10,000 words in the English language. This makes working with these vectors inconvenient, especially since they tend to be extremely sparse. Additionally, different texts may have varying lengths, resulting in vectors of different sizes, which makes calculating distances between them difficult.
 
-That operation of representing long vector with shorter one preserving the distances is called embedding and result in vectors of fixed size.
+The solution is to compress these vectors in the following way:
+- Ensure they are of the same size.
+- Compress them into a much smaller size, such as 256 or 512 dimensions.
+- Preserve the meaning of the text, meaning all similarities between the texts must be retained.
 
-Multiple technics exists to create embeddings, for example
+This process of transforming long vectors into shorter ones while preserving the relative distances is called embedding, which results in vectors of fixed size.
+
+Several techniques exist for creating embeddings, including:
 - Word2Vec
 - Matrix Factorization
 - GloVe
-- etc
-
+- And others
 
 
 
 
 ## Static vs context aware Embeddings
 
-In reality embeddings are calculated not to the whole phrase but to each separate word in a phrase, so in a  phrase each word is substituted with its embeddings for futher manipulations.
+In practice, embeddings are not calculated for the whole phrase but for each individual word within a phrase. So, in a given phrase, each word is replaced by its embedding for further manipulation.
 
-Thus our pre-calculated embeddings have a major drawback, they do not account for phrase context, they are always the same.
+However, these pre-calculated embeddings have a significant limitation: they do not account for the context of the phrase — they remain the same in all instances.
 
-For example in phrases
-- An Apple is a fruit
-- I bought a new Apply phone
+For example, consider the phrases:
+- "An apple is a fruit."
+- "I bought a new Apple phone."
 
-The word Apple will be represented by have absolutelly the same embedding vector, for example Apple[5 0 0 2 0].
+In both cases, the word "Apple" will be represented by exactly the same embedding vector, for example, Apple[5, 0, 0, 2, 0].
 
-so once we have text and calculated embedding for every single word in a text they are fixed, we are not changing it. 
+Once we've generated embeddings for each word in a text, these embeddings are static and do not change.
 
-But as we can see in an example above the meaning of the word (Apple) might be different depending on the phrase context. 
+But as the example above shows, the meaning of the word "Apple" can vary depending on the context.
 
-It would be nice to have such an algorithm which will temporarily change word embeddings vectors, adjusting it to the context, i.e. to a phrase that word is used. 
+It would be ideal to have an algorithm that can temporarily adjust the word embedding vectors to fit the context of the phrase in which the word is used. 
 
 
 
 
 ## Self - Attention
-Self-Attention is exactly mechanism to correct embeddings depending on a particular phrase context, i.e to account to context of where the word is used. As a result we wil have a embedding better reflecting the real meaning (apple phone vs apple fruit), and thus be better at the downstream tasks.
 
-It is actually very similar to a way how we as human understand words in natural language, we have many word which have the same spelling but completelly different meaning and easily understand them right based on context .
+Self-Attention is the mechanism used to adjust embeddings based on the specific context of a phrase, allowing the meaning of a word to adapt according to where it is used. This results in embeddings that better capture the true meaning of a word (e.g., "Apple" as a phone versus "apple" as a fruit), improving performance in downstream tasks.
 
-We can schematically depict self-attention as follows.
+This process is quite similar to how humans understand words in natural language. Many words have the same spelling but completely different meanings, yet we easily interpret them correctly based on the context.
 
+We can schematically represent self-attention as follows.
 
 ![What attention does](img/attention_intro.png)
+$y_i = \sum_j w_{ij} x_j$
 
 Basically, we substitute our input embeddings X with adjusted embeddings Y.
 New embeddings are derived from initial by summinng them with all the other embeddings but weithed by an "attention" coefficient. 
 
-Attention weigths are basically nothing more then a similarity between word in question and every other word ina given phrase.
+Essentially, we substitute our input embeddings $𝑋$ with new adjusted embeddings $𝑌$. 
 
-For example for a phrase "Apple is a fruit" the new adjusted embedding for an "Apple" will be
+In these new embeddings, each feature is now a sum of the same features for all other words in this phrase but weithed by a similarity of an original word and each other word. This weithing coefficient is called attention of the word to each other word.
 
-Apple = weight * Apple + weight * is + weight * fruit
+Probably this consept os not quite clear yet, we will get back to it later again, but for now lets illustrate it by this example.
 
-Since the similarity od Apple with itself will always be close to one, the initial embedding will still play a major role, but since similarity between Apple and fruite will also be quite high, we will shift apple embedding in our space a bit close to a fruit, so giving apple a bit more fruitness in this phrase only. In other phrases Apple might be shifted to phone for example or stay the same is there are no words significantly influencing Apple meaning.
+For a phrase "Apple is a fruit" the new adjusted embedding for an "Apple" will be
 
+$Apple = weight * Apple + weight * is + weight * fruit$
+
+Since the similarity of Apple with itself will always be close to one, the initial embedding will still play a major role, but similarity between Apple and fruite will also be quite high, we will shift apple embedding in our space a bit close to a fruit, so giving apple a bit more fruitness in this phrase only. In other phrases Apple might be shifted to phone for example or stay the same is there are no words significantly influencing Apple meaning.
 
 It is also impoortant to understand that one more advantages of self-attention is the fact that that embedding correction is not achived by expensive training but by simple matrix multiplication. So, no parameters for traning! That weight are calculated by simple matrix multiplication, not based on training.
 
@@ -97,16 +101,16 @@ So, lets calculate all pairwise similarities between all our words in a given ph
 
 The simpliest way to define a similarity is a dot-product. For example if we have three vectors,
 
-a = [1  0 0]
+$a = [1, 0, 0]$
 
-b = [0 10 2]
+$b = [0, 10, 2]$
 
-c = [2  0 2]
+$c = [2,  0, 2]$
 
 
 According to dot product similarity the "a" vector is highly similar to itself, which completelly makes sence
 
-dot(a,a) = 1 * 1 + 0 * 0 + 0 * 0 = 1
+$dot(a,a) = 1 * 1 + 0 * 0 + 0 * 0 = 1$
 
 
 "a" is more similar to "c then to "b" becuase "a" and "b" have a similar first feature 
@@ -124,7 +128,7 @@ In attention paradigm those two matrices are called **K (keys)** and **Q (querie
 
 So, we can nicely write this matrix multiplication as 
 
-Q*K^T
+$Q*K^T$
 
 or vizualize it as follows to have a pairwise similrity matrix among all words in our sentence
 ![Pairwise similarity matrix](img/pairwise.png)
@@ -156,7 +160,9 @@ Softmax is applied across each row, not column because
 
 We can summarize all above in this matrix formula
 
-![Calculation scaled dot-product similarity matrix normalized by softmax](img/softmax_mult.png)
+
+$\text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)
+$
 
 or vizualize it 
 
@@ -201,7 +207,8 @@ As it was mentioned at the very begining, we do it by summing up the initial emb
 ### Do that operation for an entire matrices: multiply Attention matrix by V
 We can do this operation for the entire matrices at once. For that we multiply our pairwise similarity matrix on our initial embeddings matrix (now we call it V - values - but again it is essentially the same input embedding table).
 
-![Full attention formula](img/attention.png)
+
+$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$
 
 As a result we have and adjusted embedding table and can use them futher down in our transformer architecture.
 
