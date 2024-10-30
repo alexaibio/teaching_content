@@ -1,4 +1,4 @@
-# Self-Attention mechanism for Transformers explained.
+# Intuition Behind Self-Attention in Transformers.
 
 ## Fixed Embeddings
 
