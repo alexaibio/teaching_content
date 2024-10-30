@@ -55,7 +55,8 @@ This process is quite similar to how humans understand words in natural language
 
 We can schematically represent self-attention as follows.
 
-![What attention does](img/attention_intro.png)
+![Attention idea](img/attention_intro.png)
+
 $$y_i = \sum_j w_{ij} x_j$$
 
 Basically, we substitute our input embeddings X with adjusted embeddings Y.
