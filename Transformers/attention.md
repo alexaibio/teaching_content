@@ -36,8 +36,9 @@ For example, consider the phrases:
 - "An apple is a fruit."
 - "I bought a new Apple phone."
 
-In both cases, the word "Apple" will be represented by exactly the same embedding vector, for example,
-$ Apple[5, 0, 0, 2, 0] $
+In both cases, the word "Apple" will be represented by exactly the same embedding vector, for example:
+
+$Apple[5, 0, 0, 2, 0]$
 
 So, once we've generated embeddings for each word in a text, these embeddings are static and do not change.
 
@@ -118,9 +119,9 @@ $$dot(a,a) = 1 * 1 + 0 * 0 + 0 * 0 = 1$$
 
 Vector "a" is more similar to "c" than to "b" because "a" and "c" share a similar first feature, while "a" and "b" do not: 
 
-$$dot(a,b) = 1 * 0 + 0 * 0 + 0 * 2 = 0$$
+$$ dot(a,b) = 1 * 0 + 0 * 0 + 0 * 2 = 0$$
 
-$$ot(a,c) = 1 * 2 + 0 * 0 + 0 * 2 = 2$$
+$$ dot(a,c) = 1 * 2 + 0 * 0 + 0 * 2 = 2$$
 
 Then, a convenient way to calculate all pairwise similarities in one step is to multiply the embedding matrix by itself.
 
@@ -197,9 +198,11 @@ $$ [ 5 (fruits), 2 (computers), 0 (language)] $$
 
 What we do next is the following
 - Start with the "fruitness" of Apple, which is 5.
-- Look up similarities for "Apple" with all other words in the sentence. This is the first row of the attention (key/query) matrix:  $[0.99997	0.00000	0.00002	0.00002	0.00000 ]$
+- Look up similarities for "Apple" with all other words in the sentence. This is the first row of the attention (key/query) matrix:  
+  $[0.99997	0.00000	0.00002	0.00002	0.00000 ]$
 - Apple is mostly similar to itself (0.9997) and and has minor similarities to "Phone" and "Garden."
 - so we shift apple as a point in embedding space a bit close to Phone and Garden by having a dot product
+  
  $ dot ([0.99997	0.00000	0.00002	0.00002	0.00000 ]  x  [5 0 0 2 0] ) = 4.99986$
 
 Now, Apple’s "fruitness" is still close to 5, but we’ve added a small influence from "Garden" and "Phone," slightly shifting "Apple" toward the embedding clusters of "Garden" and "Phones."
