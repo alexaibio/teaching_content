@@ -55,8 +55,8 @@ This process is quite similar to how humans understand words in natural language
 
 We can schematically represent self-attention as follows.
 
-![What attention does](img/attention_intro.png)
-$y_i = \sum_j w_{ij} x_j$
+![What attention does](img/attention_intro.jpg)
+$$y_i = \sum_j w_{ij} x_j$$
 
 Basically, we substitute our input embeddings X with adjusted embeddings Y.
 New embeddings are derived from initial by summinng them with all the other embeddings but weithed by an "attention" coefficient. 
@@ -69,7 +69,9 @@ Probably this consept os not quite clear yet, we will get back to it later again
 
 For a phrase "Apple is a fruit" the new adjusted embedding for an "Apple" will be
 
-$Apple = weight * Apple + weight * is + weight * fruit$
+
+$$Apple = weight * Apple + weight * is + weight * fruit$$
+
 
 Since the similarity of Apple with itself will always be close to one, the initial embedding will still play a major role, but similarity between Apple and fruite will also be quite high, we will shift apple embedding in our space a bit close to a fruit, so giving apple a bit more fruitness in this phrase only. In other phrases Apple might be shifted to phone for example or stay the same is there are no words significantly influencing Apple meaning.
 
@@ -128,7 +130,7 @@ In attention paradigm those two matrices are called **K (keys)** and **Q (querie
 
 So, we can nicely write this matrix multiplication as 
 
-$Q*K^T$
+$$Q*K^T$$
 
 or vizualize it as follows to have a pairwise similrity matrix among all words in our sentence
 ![Pairwise similarity matrix](img/pairwise.png)
@@ -208,7 +210,7 @@ As it was mentioned at the very begining, we do it by summing up the initial emb
 We can do this operation for the entire matrices at once. For that we multiply our pairwise similarity matrix on our initial embeddings matrix (now we call it V - values - but again it is essentially the same input embedding table).
 
 
-$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$
+$$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$
 
 As a result we have and adjusted embedding table and can use them futher down in our transformer architecture.
 

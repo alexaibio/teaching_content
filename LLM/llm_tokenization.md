@@ -1,0 +1,2 @@
+character - for equations
+BPE
