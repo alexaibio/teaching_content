@@ -144,11 +144,12 @@ The scaled dot product is simply the regular dot product divided by the square r
 
 For example, with embeddings of dimension 3, the similarity between "Apple" and itself is calculated as follows:
 
-$$similarity(apple, apple) = (5 * 5 + 2 * 2 + 0 * 0) / sqrt(3) = 16.74$$
+$$ \text{similarity}(\text{apple}, \text{apple}) = \frac{(5 \times 5 + 2 \times 2 + 0 \times 0)}{\sqrt{3}} = 16.74 $$
 
 And between "Apple" and "Phone," it is much smaller:
 
-$$ similarity(apple, phone) = (5 * 0 + 2 * 5 + 0 * 0) / sqrt(3) = 5.77 $$
+$$ \text{similarity}(\text{apple}, \text{phone}) = \frac{(5 \times 0 + 2 \times 5 + 0 \times 0)}{\sqrt{3}} = 5.77
+$$
 
 
 The division by the square root of the embedding dimension helps to scale down the values, which is especially useful when embeddings are large vectors (e.g., 512 or 1024 dimensions), as their dot product can result in high values.
@@ -203,7 +204,8 @@ What we do next is the following
 - Apple is mostly similar to itself (0.9997) and and has minor similarities to "Phone" and "Garden."
 - so we shift apple as a point in embedding space a bit close to Phone and Garden by having a dot product
   
- $ dot ([0.99997	0.00000	0.00002	0.00002	0.00000 ]  x  [5 0 0 2 0] ) = 4.99986$
+$$ \text{dot}\left( \begin{bmatrix} 0.99997 & 0.00000 & 0.00002 & 0.00002 & 0.00000 \end{bmatrix} \cdot \begin{bmatrix} 5 \\ 0 \\ 0 \\ 2 \\ 0 \end{bmatrix} \right) = 4.99986
+$$
 
 Now, Apple’s "fruitness" is still close to 5, but we’ve added a small influence from "Garden" and "Phone," slightly shifting "Apple" toward the embedding clusters of "Garden" and "Phones."
 
