@@ -1,10 +1,25 @@
 # Practice attention implementaion
 
-## Self-attention in real worls
+## Self-attention in real world
+
+In the simplified example above, we calculated attention weights directly from the original embedding matrix by computing pairwise similarities between embeddings.
+
+It might seem that there is no learning here.
+
+However, in real Transformer implementations, three separate learnable weight matrices are introduced: W_Q, W_K, and W_V.
+Q, K, V are not copied from the input embeddings X but are result of the multiplications.
+
+Q = XW_Q,  K = XW_K,  V = XW_V
+
+A separation of these matrices makes it possible for the model to learn word relevancy beyond the initial values we have in X. 
+The initial embedding matrix X is learned separatelly (downstream before attention) in a separate embeddings layer (with positioning information).
 
 
-In contrast to toy example in the previous article in real transformer implementation attantion is not directly caclulated to
-we do embeddings adjustments not by changing the original matrices, but by attaching weigths to  K Q V matrices(which are initially copied from embeddings matrix), so 
+This separation allows the model to learn three different representations of the input embeddings, each serving a specific purpose:
+
+Q and K allow the model to learn which tokens are relevant to each other.
+
+V allows the model to learn what information should be passed between tokens.
 
 Q = initial embeddings x Learnable Weights Q
 
@@ -18,15 +33,18 @@ V = initial embeddings x Learnable Weights V
 
 
 
-## Masked Attention implementation
+## Masked Attention
 
-From the previous post we can remember that we adjust each word embedding to a phrase content by 
-- first, calculation pairwise similarity between all words in a phrase
+### Causal (Autoregressive) Attention (GPT-style)
+
+From the previous post we can remember that we adjust each word (token) embedding to a phrase content by 
+- first, calculation pairwise similarity between all words (tokens) in a phrase
 - scaling and normalizing it by dividing and softmaxing
-- modify each feature (aka coordinate) by summing all word coordinates weithed by its similarity to a given word
+- calculate new embeddings or contextualized representations by attention formula
+
 
 That is all right, with one nuance. 
-One way of foundational model training in generative settings is about to predict next token based on previous tokens, but if we modify embeddings based on all words in a sentence we kind of violate this idea. So, to be consistent at every time step we have to mask all future tokens from any similarity etc calculations, so, predicting next token we have  to only relay on the past tokens.
+One way of foundational model training in generative settings is about to predict next token based on previous tokens, but if we modify embeddings based on all words (tokens) in a sentence we kind of violate this idea. So, to be consistent at every time step we have to mask all future tokens from any future calculations, so, predicting next token we have  to only relay on the past tokens.
 
 Here we show how to do it in computationally efficient way.
 
@@ -37,12 +55,28 @@ Here we show how to do it in computationally efficient way.
 
 ![Masking future token](img/masking.png)
 
+### Padding Mask (Key Padding Mask) - variable length
+To allow working with sequences of different length.
+
+Lets imagine we combine a batch from two sentences
+- "I love machine learning"
+- "I love AI"
+
+To make both phrases to have the same length we do padding - add a spesial PAD token to the and of second phrase.
+So, in order to forbid the model to take into account those PADs, we multiply attention matrices by Padding Mask.
+
+### Bidirectional / Full Attention 
+BERT style - decoder only
+Do not miss with Masked Language Modeling (MLM)
+
+
+
 
 ## Multihead Attention and Head Size
 
 разница между self-attention and multihead attention в том что
 
-- мы используем много матриц K, Q and V а потом concatenate результаты от каждого head - то есть вытягиваем в линию -  The feed-forward layer is not expecting eight matrices – it’s expecting a single matrix (a vector for each word). So we need a way to condense these eight down into a single matrix.
+- мы используем много матриц K, Q and V а потом concatenate результаты от каждого head - то есть вытягиваем в линию -  The feed-forward layer is not expecting eight matrices – it’s expecting a single matrix (a vector for each word-token). So we need a way to condense these eight down into a single matrix.
 - но потом используем Linear layer чтобы сжать размерность в исходную
 - How do we do that? We concat the matrices then multiply them by an additional weights matrix WO
 
