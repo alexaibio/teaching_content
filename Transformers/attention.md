@@ -1,4 +1,4 @@
-# Intuition Behind Self-Attention in Transformers.
+# Intuition Behind Self-Attention: a simplified example.
 
 ## Fixed Embeddings
 
@@ -227,6 +227,27 @@ Let's break down each step in the calculation:
 
 
 Each embedding is now adjusted based on the attention it pays to every other word in the sentence. For example, the word "is" may now have a stronger association with the "language" embedding (as seen by the amplified value in that dimension).
+
+
+# Implementation notes
+In the simplified example above, we calculated attention weights directly from the original embedding matrix by computing pairwise similarities between embeddings.
+
+It might seem that there is no learning here.
+
+However, in real Transformer implementations, three separate learnable weight matrices are introduced: W_Q, W_K, and W_V.
+Q, K, V are not copied from the input embeddings X but are result of the multiplications.
+
+Q = XW_Q,  K = XW_K,  V = XW_V
+
+A separation of these matrices makes it possible for the model to learn word relevancy beyond the initial values we have in X. 
+The initial embedding matrix X is learned separatelly (downstream before attention) in a separate embeddings layer (with positioning information).
+
+
+This separation allows the model to learn three different representations of the input embeddings, each serving a specific purpose:
+
+Q and K allow the model to learn which tokens are relevant to each other.
+
+V allows the model to learn what information should be passed between tokens.
 
 
 

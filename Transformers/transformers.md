@@ -1,11 +1,5 @@
 # Transformer architecture
 
-## Multi-Head Attention
-разница между self-attention and multihead attention в том что
-
-- мы используем много матриц K, Q and V а потом concatenate результаты от каждого head - то есть вытягиваем в линию - используем всех
-- но потом используем Linear layer чтобы сжать размерность в исходную
-![Multi head attention](img/multi_head.png)
 
 
 
@@ -42,3 +36,9 @@ Once the model is trained:
 - For each new sentence, the self-attention mechanism dynamically adjusts the embeddings temporarily based on the sentence structure, computes the output (such as predicted next word, classification, etc.), and then moves on to the next sentence.
 
 
+
+## TODO
+Learning happens at two levels:
+1. Embedding learning: модель учится создавать начальные представления токенов (X).
+2. Attention learning: модель учится преобразовывать X в Q, K, V с помощью обучаемых матриц.
+Именно поэтому Transformer способен не просто использовать заранее заданную семантическую близость слов, а самостоятельно научиться определять, какие взаимосвязи важны для конкретной задачи.
