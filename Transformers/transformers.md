@@ -1,13 +1,9 @@
-# Transformer architecture
+# "Attention is all you need" transformer architecture
+
+This particular architecture is for translation purpose, that is why it has both encoder and decoder.
 
 
-
-
-## Attention is all you need Transformer architecture
-
-![Attention is all you need architecture](img/all_you_need.png)
-
-
+<img src="img/all_you_need.png" alt="Attention is all you need architecture" width="80%">
 
 
 ## Relation to a transformer training and inference
