@@ -1,4 +1,4 @@
-# Practice attention implementaion
+# Attention implementaion flavours
 
 ## Self-attention in real world
 
@@ -27,9 +27,8 @@ K = initial embeddings x Learnable Weights K
 
 V = initial embeddings x Learnable Weights V
 
-![Linear layer: from input embeddings to Q, K, V](img/linear_x_to_kqv.png)
 
-
+<img src="img/linear_x_to_kqv.png" alt="Linear layer: from input embeddings to Q, K, V" width="70%">
 
 
 
@@ -74,17 +73,33 @@ Do not miss with Masked Language Modeling (MLM)
 
 ## Multihead Attention and Head Size
 
-разница между self-attention and multihead attention в том что
+Remember that a simple one-head attention cottect the final embedding with respect to the relation between words in whole sentence. It does it from one point of view. 
+What we can do is to take a look on the sentence from several points of view, i.e train several sets of V,K,Q matrices, so now several realtionships might be captired, for example.
 
-- мы используем много матриц K, Q and V а потом concatenate результаты от каждого head - то есть вытягиваем в линию -  The feed-forward layer is not expecting eight matrices – it’s expecting a single matrix (a vector for each word-token). So we need a way to condense these eight down into a single matrix.
-- но потом используем Linear layer чтобы сжать размерность в исходную
-- How do we do that? We concat the matrices then multiply them by an additional weights matrix WO
+Head 1: semantic relationships between Apple and Fruit.
+Head 2: context relationships between Apple and Phone.
+
+That trick is called multi-head attention. The overall schema is as follows.
+<img src="img/multi_head_attention.png" alt="Multi head attention" width="100%">
+
+Courtesy https://sebastianraschka.com/llm-architecture-gallery/mha/
+
+But now in the output we have several embedding vectors instead of one. To compress them back to a size on one embedding we concatenate all those vectors and then use an additional linear layer (with weight matrix WO) to compress them back.  
 
 
+So, the general schema of multi head attention is as follows.
 
-![Multi head attention](img/multi_head.png)
+<img src="img/multi_head.png" alt="Multi head attention" width="60%">
 
+But one more complication: in a real transformer a bit different contatination schema is used.
+For example if we have
 
+d_{model} = 512
+
+num_heads = 8
+
+Instead of having each head produce full 512 embedding vector, we can generate a smaller output called Head dimension =  512/8.
+In that case the matric dimension is significantly reduced.
 
 
 ## implementation tricks: FlashAttention
@@ -101,6 +116,3 @@ For example, imagine we have two sequences: an English sentence and its French t
 
 Technically, the main difference is that Queries (Q) come from one sequence, while Keys (K) and Values (V) come from another sequence. The Query represents what information we are looking for, while Keys and Values represent the information available from the other sequence. The attention mechanism calculates how relevant each element of the second sequence is to each element of the first sequence and uses these weights to construct new, context-aware representations.
 
-The mathematical formula remains the same
-
-Важный нюанс: Cross-Attention не обязательно работает между двумя текстовыми последовательностями. Например, в мультимодальных моделях одна последовательность может представлять текст, а другая — изображение. Тогда текстовые Query обращаются к визуальным Key и Value.

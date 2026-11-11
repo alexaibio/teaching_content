@@ -250,6 +250,13 @@ Q and K allow the model to learn which tokens are relevant to each other.
 V allows the model to learn what information should be passed between tokens.
 
 
+Shecematically the whole process is as follows
+
+<img src="img/one_head_attention.png" alt="Multi head attention" width="100%">
+
+(https://sebastianraschka.com/llm-architecture-gallery/mha/)
+
+
 
 
 # Conclusion
