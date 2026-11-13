@@ -18,9 +18,9 @@ Decoder
 - cross attention
 
 
-
-
 <img src="img/all_you_need.png" alt="Attention is all you need architecture" width="80%">
+
+
 
 
 ## Relation to a transformer training and inference
