@@ -1,6 +1,23 @@
 # "Attention is all you need" transformer architecture
 
+## Intro
 This particular architecture is for translation purpose, that is why it has both encoder and decoder.
+
+Lets start from understanding how all blocks are working.
+
+How it works in general: how to train, how to do inferences
+
+Encoder
+- input embedding
+- positional encoding
+- multiple multi head attention blocks
+
+Decoder
+- why encoder-decoder architecture?
+- masked multi head attention
+- cross attention
+
+
 
 
 <img src="img/all_you_need.png" alt="Attention is all you need architecture" width="80%">
