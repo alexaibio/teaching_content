@@ -10,8 +10,9 @@ This might give the impression that no learning takes place here.
 However, in real Transformer implementations, three separate learnable weight matrices are used: W_Q, W_K, and W_V.
 
 This means that Q, K, V are not simply copied from the input embeddings X, as they were in our simplified example, instead, they are obtained by applying separate linear transformations to X.
-
-Q = X * W_Q,  K = X * W_K,  V = X * W_V
+- Q = X * W_Q 
+- K = X * W_K
+- V = X * W_V
 
 The process started from the initial embedding matrix X (learned first before attention calculation) and incorporates positioning information.
 
@@ -21,7 +22,7 @@ These three weight matrices allow the model to learn three different representat
 
 
 
-<img src="img/linear_x_to_kqv.png" alt="Linear layer: from input embeddings to Q, K, V" width="70%">
+<img src="img/linear_x_to_kqv.png" alt="Linear layer: from input embeddings to Q, K, V" width="60%">
 
 
 ## Cross-Attention
@@ -44,7 +45,7 @@ Instead we can do it from several points of views, i.e to train several sets of 
 
 This approach is called multi-head attention. The overall schema is as follows.
 
-<img src="img/multi_head_attention.png" alt="Multi head attention" width="100%">
+<img src="img/multi_head_attention.png" alt="Multi head attention" width="70%">
 
 (Courtesy https://sebastianraschka.com/llm-architecture-gallery/mha/)
 
