@@ -22,7 +22,7 @@ These three weight matrices allow the model to learn three different representat
 
 
 
-<img src="img/linear_x_to_kqv.png" alt="Linear layer: from input embeddings to Q, K, V" width="60%">
+<img src="img/linear_x_to_kqv.png" alt="Linear layer: from input embeddings to Q, K, V" width="50%">
 
 
 ## Cross-Attention
@@ -53,7 +53,7 @@ However, the output now contains several embedding vectors instead of one. To co
 
 The general structure of multi head attention is as follows.
 
-<img src="img/multi_head.png" alt="Multi head attention" width="60%">
+<img src="img/multi_head.png" alt="Multi head attention" width="50%">
 
 There is one more important detail: in a real transformer a bit different approach is used.
 
