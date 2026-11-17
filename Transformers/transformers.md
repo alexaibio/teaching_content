@@ -21,6 +21,28 @@ Decoder
 <img src="img/all_you_need_2.png" alt="Attention is all you need architecture" width="80%">
 
 
+## Blocks
+Что делает Encoder?
+1. Token IDs преобразуются в embeddings.
+2. Добавляется positional encoding.
+3. Проходят через Multi-Head Self-Attention.
+4. Проходят через Feed Forward Network.
+5. Всё повторяется для каждого Encoder layer.
+Важный момент: Encoder видит всё предложение целиком.
+
+Но Decoder устроен немного сложнее Encoder.
+
+В каждом Decoder layer есть три основных блока:
+1. Masked Multi-Head Self-Attention.
+2. Encoder-Decoder Attention (Cross-Attention).
+3. Feed Forward Network.
+
+7. Куда подаётся Label?
+Это очень важный момент.
+
+Label вообще не передаётся ни Encoder, ни Decoder.
+
+Он нужен для вычисления Loss. Обычно используется CrossEntropyLoss.
 
 
 ## Relation to a transformer training and inference
