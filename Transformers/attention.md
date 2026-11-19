@@ -237,7 +237,9 @@ It might seem that there is no learning here.
 However, in real Transformer implementations, three separate learnable weight matrices are introduced: W_Q, W_K, and W_V.
 Q, K, V are not copied from the input embeddings X but are result of the multiplications.
 
-Q = XW_Q,  K = XW_K,  V = XW_V
+- Q = X * W_Q  
+- K = X * W_K  
+- V = X * W_V
 
 A separation of these matrices makes it possible for the model to learn word relevancy beyond the initial values we have in X. 
 The initial embedding matrix X is learned separatelly (downstream before attention) in a separate embeddings layer (with positioning information).
@@ -252,9 +254,9 @@ V allows the model to learn what information should be passed between tokens.
 
 Shecematically the whole process is as follows
 
-<img src="img/one_head_attention.png" alt="Multi head attention" width="100%">
+<img src="img/one_head_attention.png" alt="Multi head attention" width="90%">
 
-(https://sebastianraschka.com/llm-architecture-gallery/mha/)
+(reference: https://sebastianraschka.com/llm-architecture-gallery/mha/)
 
 
 
