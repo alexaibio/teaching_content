@@ -1,11 +1,10 @@
 # "Attention is all you need" transformer architecture
 
 ## Intro
-This particular architecture is for translation purpose, that is why it has both encoder and decoder.
+The architecture described in this article does a translation from one language to another. It consists of encoder and decoder parts, both of them contains several block with attention inside.
+Lets illustrate how it works in general: how to train and how to do inferences.
 
-Lets start from understanding how all blocks are working.
-
-How it works in general: how to train, how to do inferences
+Lets start from understanding how tje separate blocks are working.
 
 Encoder
 - input embedding
@@ -28,24 +27,27 @@ Decoder
 3. Проходят через Multi-Head Self-Attention.
 4. Проходят через Feed Forward Network.
 5. Всё повторяется для каждого Encoder layer.
-Важный момент: Encoder видит всё предложение целиком.
+Note: Encoder видит всё предложение целиком.
 
-Но Decoder устроен немного сложнее Encoder.
+Decoder устроен немного сложнее Encoder.
 
 В каждом Decoder layer есть три основных блока:
 1. Masked Multi-Head Self-Attention.
 2. Encoder-Decoder Attention (Cross-Attention).
 3. Feed Forward Network.
 
-7. Куда подаётся Label?
-Это очень важный момент.
+Main differencies with encoder:
+- Attetion is masked (Causal)
+- There is a cross-attention too
+
+There are Labels also. Куда подаётся Label?
 
 Label вообще не передаётся ни Encoder, ни Decoder.
 
-Он нужен для вычисления Loss. Обычно используется CrossEntropyLoss.
+Он нужен на этапе Training для вычисления Loss. Обычно используется CrossEntropyLoss.
 
 
-## Relation to a transformer training and inference
+## Transient nature of Attention
 Lets understand how embeddings and self-attention adjustments work across sentences, especially in the context of training a Transformer.
 
 It is important to understand that when you apply self-attention and adjust the embeddings for a particular sentence, this adjustment is only temporary for that specific forward pass
