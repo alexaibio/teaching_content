@@ -1,4 +1,4 @@
-# "Attention is all you need" transformer architecture
+# TBD: "Attention is all you need" transformer architecture
 
 ## Intro
 The architecture described in this article does a translation from one language to another. It consists of encoder and decoder parts, both of them contains several block with attention inside.
