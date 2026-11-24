@@ -5,6 +5,7 @@
 - T5 (generation questions to a sentence)
 - Marian
 
+
 # Embedding generation (encoder Only)
 
 - BERT (Google, 2018)
@@ -18,12 +19,20 @@
     - Training: a denoising autoencoder, The text is corrupted and the model reconstructs the original.
     - Use: especially strong at summarization.
 
-# Text Generation (decoder only)
 
+# Text Generation (decoder only - text prediction)
+
+All the models below have:
+- architecture: decoder only
+- training: Causal Language Modeling (CLM)
+- use: text generation, summarization
+
+Decoder only models:
  - GPT-2
  - QWEN-3
- - GLM
  - LLaMA, 
- - Claude
+ - Gemma   ( with Multimodal capabilities - why?)
 
  
+Separate case: 
+- GLM (GLM имеет более сложную историю с особой objective-функцией)
